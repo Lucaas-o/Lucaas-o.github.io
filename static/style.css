@@ -3,7 +3,7 @@ body {
    background-color: #F2F5DE;
    font-family: Arial, sans-serif;
    margin: 0;
-   padding: 10px;
+   padding: 0;
 }
 
 h1, h2 {
@@ -26,10 +26,9 @@ header {
 }
 
 nav ul {
+   list-style: none;
    display: flex;
    justify-content: center;
-   list-style: none;
-   margin: 0;
    padding: 0;
 }
 
@@ -41,9 +40,6 @@ nav ul li a {
    text-decoration: none;
    color: #333;
    font-size: 18px;
-   padding: 5px 10px;
-   border-radius: 5px;
-   transition: background-color 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
@@ -102,7 +98,6 @@ nav ul li a:hover {
    text-decoration: underline;
 }
 
-
 .links-list {
    list-style: none;
    padding: 0;
@@ -127,27 +122,27 @@ nav ul li a:hover {
 }
 
 /* Projects Section */
-.project-previews {
-   display: flex;
-   justify-content: center;
-   align-items: flex-start;
-   flex-wrap: wrap;
-   gap: 20px;
-   margin: 0 auto;
+.projects-section {
+   text-align: center;
    padding: 20px;
-   max-width: 1200px;
 }
 
+.projects-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 30px;
+}
 
 .project {
-   background-color: #D0FFB7;
-   padding: 20px;
+   width: 45%; /* Make each project take up almost half the width */
+   background: #fff;
    border-radius: 5px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
    text-align: center;
-   width: 250px;
-   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-   text-decoration: none;
-   color: #333;
+   position: relative;
+   transition: transform 0.3s ease-in-out;
 }
 
 .project:hover {
@@ -155,46 +150,64 @@ nav ul li a:hover {
    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.project-title {
-   font-size: 20px;
-   font-weight: bold;
+.project img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+}
+
+.project h2 {
+   margin: 10px 0;
+}
+
+.expand-button {
+   background: #86E7B8;
+   border: none;
+   padding: 10px 15px;
+   border-radius: 5px;
+   cursor: pointer;
+   color: #fff;
+   font-size: 14px;
    margin-bottom: 10px;
 }
 
-.project p {
-   font-size: 16px;
-   color: #555;
+.project-details {
+   display: none;
+   text-align: left;
+   padding: 15px;
+   background-color: #f8f9fa;
+   border-top: 1px solid #ddd;
 }
 
-.project a {
-   text-decoration: none;
-   color: inherit;
-   display: block;
-   transition: all 0.3s ease-in-out;
+.action-buttons {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 15px;
 }
-.project a:hover {
+
+.github-link {
    color: #000;
-   background-color: #B2FFA8;
-}
-
-
-/* Contact Section */
-.contact a {
-   color: #86E7B8;
    text-decoration: none;
-   font-weight: bold;
+   background-color: #e5e5e5;
+   padding: 5px 10px;
+   border-radius: 3px;
 }
 
-.contact a:hover {
-   color: #333;
+.github-link:hover {
+   background-color: #ccc;
 }
 
-.project-description {
-   font-size: 16px;
-   color: #555;
-   margin-top: 5px;
+.star-button {
+   background: #FFD700;
+   border: none;
+   padding: 5px 10px;
+   border-radius: 3px;
+   cursor: pointer;
+   font-size: 14px;
 }
 
+/* Mobile View Adjustments */
 @media screen and (max-width: 768px) {
    nav ul {
       flex-direction: column;
@@ -203,15 +216,22 @@ nav ul li a:hover {
    .project {
       width: 100%;
    }
+   .projects-container {
+      flex-direction: column;
+      gap: 20px;
+   }
    .website-section {
       width: 95%;
    }
 }
 
-/************
- *  Extra  *
- ***********
-* {
-   border: 1px solid red;
+.project-description {
+   font-size: 16px;
+   color: #555;
+   margin-top: 5px;
 }
-*/
+
+/* Extra for debugging */
+* {
+   /* border: 1px solid red; */
+}
