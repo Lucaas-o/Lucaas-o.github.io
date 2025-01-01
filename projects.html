@@ -4,7 +4,8 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>My Projects</title>
+      <link rel="stylesheet" href="static/style.css" />
    </head>
    <body>
       <header>
@@ -17,22 +18,45 @@
             </ul>
          </nav>
       </header>
-      <h1>Projects</h1>
-      <p>These are some of the projects I have worked on:</p>
-      <ul>
-         <li>
-            <a href="https://Lucaas-o.github.io" target="_blank">Personal Website</a>
-         </li>
-         <li>
-            <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank">Pomodoro App</a>
-         </li>
-         <li>
-            <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank">Simple Encryptor/Decryptor</a>
-         </li>
-         <li>
-            <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank">Batch Toolbox   </a>
-         </li>
-      </ul>
-      <script src="index.js"></script>
+      <main>
+         <section class="projects-section">
+            <h1>Projects</h1>
+            <p>These are some of the projects I have worked on:</p>
+            <ul id="projects-list">
+               <li>
+                  <a href="https://Lucaas-o.github.io" target="_blank">Personal Website</a>
+               </li>
+               <li>
+                  <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank">Pomodoro App</a>
+               </li>
+               <li>
+                  <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank">Simple Encryptor/Decryptor</a>
+               </li>
+               <li>
+                  <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank">Batch Toolbox</a>
+               </li>
+            </ul>
+         </section>
+      </main>
+      <script>
+         // Generate descriptions based on project titles
+         const descriptions = {
+            "Personal Website": "Explore my personal portfolio website showcasing my skills and projects.",
+            "Pomodoro App": "A productivity app implementing the Pomodoro technique for time management.",
+            "Simple Encryptor/Decryptor": "A basic tool for encrypting and decrypting text using custom algorithms.",
+            "Batch Toolbox": "A collection of batch scripts to automate common tasks."
+         };
+
+         const projectsList = document.getElementById("projects-list");
+         projectsList.querySelectorAll("li").forEach((item) => {
+            const link = item.querySelector("a");
+            const title = link.textContent.trim();
+            const description = descriptions[title] || "A fascinating project to explore!";
+            const descElem = document.createElement("p");
+            descElem.textContent = description;
+            descElem.classList.add("project-description");
+            item.appendChild(descElem);
+         });
+      </script>
    </body>
 </html>
