@@ -1,6 +1,6 @@
 /* General Styling */
 body {
-   background-color: #F2F5DE;
+   background-color: #F7F9FC; /* Light Grayish Blue */
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
@@ -15,12 +15,12 @@ p {
    text-align: center;
    font-size: 18px;
    line-height: 1.6;
-   color: #555;
+   color: #333333; /* Dark Gray */
 }
 
 /* Header and Navigation */
 header {
-   background-color: #93FF96;
+   background-color: #3B5998; /* Dark Blue */
    padding: 10px 0;
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -38,63 +38,64 @@ nav ul li {
 
 nav ul li a {
    text-decoration: none;
-   color: #333;
+   color: #ffffff; /* White */
    font-size: 18px;
+   transition: color 0.3s ease; /* Animation on hover */
 }
 
 nav ul li a:hover {
-   background-color: #D0FFB7;
-   color: #000;
+   color: #FF4081; /* Pink */
 }
 
 /* Main Title Section */
 .main-title {
-   background-color: #86E7B8;
+   background-color: #E2E6F0; /* Light Gray */
    margin: 20px auto;
    padding: 20px;
    width: 80%;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
    border-radius: 5px;
    text-align: center;
+   animation: fadeIn 0.5s; /* Fade in animation */
 }
 
 .main-title h1 {
    font-size: 36px;
-   color: #333;
+   color: #333333; /* Dark Gray */
    margin-bottom: 10px;
 }
 
 .main-title p {
    font-size: 20px;
-   color: #555;
+   color: #555; /* Soft Gray */
 }
 
 /* Section Styling */
 .website-section {
-   margin: 40px 0;
+   margin: 40px auto;
    padding: 20px;
    text-align: center;
-   background-color: #fff;
+   background-color: #ffffff; /* White */
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    border-radius: 5px;
    width: 80%;
-   margin: 40px auto;
+   animation: slideIn 0.5s; /* Slide in animation */
 }
 
 .website-section h2 {
    font-size: 28px;
-   color: #333;
+   color: #333333; /* Dark Gray */
    margin-bottom: 20px;
 }
 
 .website-section a {
-   color: #333;
+   color: #0066CC; /* Bright Blue */
    text-decoration: none;
    font-size: 18px;
 }
 
 .website-section a:hover {
-   color: #86E7B8;
+   color: #FF4081; /* Pink */
    text-decoration: underline;
 }
 
@@ -112,13 +113,13 @@ nav ul li a:hover {
 
 .links-list li a {
    text-decoration: none;
-   color: #86E7B8;
+   color: #0066CC; /* Bright Blue */
    font-size: 18px;
-   transition: color 0.3s;
+   transition: color 0.3s; /* Animation on hover */
 }
 
 .links-list li a:hover {
-   color: #333;
+   color: #333333; /* Dark Gray */
 }
 
 /* Projects Section */
@@ -135,8 +136,8 @@ nav ul li a:hover {
 }
 
 .project {
-   width: 45%; /* Make each project take up almost half the width */
-   background: #fff;
+   width: 45%;
+   background: #ffffff; /* White */
    border-radius: 5px;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
    overflow: hidden;
@@ -161,7 +162,7 @@ nav ul li a:hover {
 }
 
 .expand-button {
-   background: #86E7B8;
+   background: #4CAF50; /* Emerald Green */
    border: none;
    padding: 10px 15px;
    border-radius: 5px;
@@ -169,14 +170,20 @@ nav ul li a:hover {
    color: #fff;
    font-size: 14px;
    margin-bottom: 10px;
+   transition: background 0.3s ease; /* Animation on hover */
+}
+
+.expand-button:hover {
+   background: #45a049; /* Darker Emerald Green */
 }
 
 .project-details {
    display: none;
    text-align: left;
    padding: 15px;
-   background-color: #f8f9fa;
+   background-color: #f8f9fa; /* Very Light Gray */
    border-top: 1px solid #ddd;
+   animation: fadeIn 0.5s; /* Fade in animation */
 }
 
 .action-buttons {
@@ -210,18 +217,18 @@ nav ul li a:hover {
 /* Mobile View Adjustments */
 @media screen and (max-width: 768px) {
    nav ul {
-      flex-direction: column;
-      padding: 10px;
+       flex-direction: column;
+       padding: 10px;
    }
    .project {
-      width: 100%;
+       width: 100%;
    }
    .projects-container {
-      flex-direction: column;
-      gap: 20px;
+       flex-direction: column;
+       gap: 20px;
    }
    .website-section {
-      width: 95%;
+       width: 95%;
    }
 }
 
@@ -231,7 +238,36 @@ nav ul li a:hover {
    margin-top: 5px;
 }
 
-/* Extra for debugging */
-* {
-   /* border: 1px solid red; */
+/* Animations */
+@keyframes slideIn {
+   from {
+       transform: translateY(-20px);
+       opacity: 0;
+   }
+   to {
+       transform: translateY(0);
+       opacity: 1;
+   }
+}
+
+@keyframes fadeIn {
+   from {
+       opacity: 0;
+   }
+   to {
+       opacity: 1;
+   }
+}
+
+.content {
+   display: grid;
+   justify-items: center;
+   align-items: center;
+   height: 100vh;
+   animation: slideIn 0.5s ease-in-out;
+   animation-fill-mode: forwards;
+   opacity: 0;
+   animation-delay: 0.5s;
+   animation-timing-function: ease-in-out;
+   padding: auto;   
 }
