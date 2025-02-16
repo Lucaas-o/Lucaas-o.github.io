@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Animation toggle functionality
     animationToggle.addEventListener('click', () => {
-        if (body.style.animationName === 'none') {
+        if (body.style.animationName === 'none' || body.style.animationName === '') {
             body.style.animationName = 'gradientMove';
         } else {
             body.style.animationName = 'none';
