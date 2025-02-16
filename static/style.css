@@ -1,26 +1,38 @@
 /* General Styling */
 body {
-   background-color: #F7F9FC; /* Light Grayish Blue */
+   background: linear-gradient(-45deg, #2C3E50, #34495E, #1F2833, #0B0C10);
+   background-size: 400% 400%;
+   animation: gradientMove 20s ease infinite;
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
+   color: #E0E0E0;
+   text-align: center;
 }
 
 h1, h2 {
-   text-align: center;
    margin-top: 20px;
+   transition: color 1.5s ease-in-out;
+   position: relative;
+   overflow: hidden;
+   white-space: nowrap;
+   display: inline-block;
+   animation: decryptText 3s steps(20, end) forwards;
+   opacity: 0;
+}
+
+h1:hover, h2:hover {
+   color: #66FCF1;
 }
 
 p {
-   text-align: center;
    font-size: 18px;
    line-height: 1.6;
-   color: #333333; /* Dark Gray */
 }
 
 /* Header and Navigation */
 header {
-   background-color: #3B5998; /* Dark Blue */
+   background-color: rgba(20, 20, 20, 0.9);
    padding: 10px 0;
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -38,96 +50,50 @@ nav ul li {
 
 nav ul li a {
    text-decoration: none;
-   color: #ffffff; /* White */
+   color: #45A29E;
    font-size: 18px;
-   transition: color 0.3s ease; /* Animation on hover */
+   transition: color 1.5s;
 }
 
 nav ul li a:hover {
-   color: #FF4081; /* Pink */
+   color: #66FCF1;
 }
 
 /* Main Title Section */
 .main-title {
-   background-color: #E2E6F0; /* Light Gray */
+   background: rgba(255, 255, 255, 0.05);
    margin: 20px auto;
    padding: 20px;
    width: 80%;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
    border-radius: 5px;
-   text-align: center;
-   animation: fadeIn 0.5s; /* Fade in animation */
+   backdrop-filter: blur(5px);
+   animation: fadeIn 1.5s;
 }
 
-.main-title h1 {
-   font-size: 36px;
-   color: #333333; /* Dark Gray */
-   margin-bottom: 10px;
-}
-
-.main-title p {
-   font-size: 20px;
-   color: #555; /* Soft Gray */
-}
-
-/* Section Styling */
+/* Sections */
 .website-section {
    margin: 40px auto;
    padding: 20px;
-   text-align: center;
-   background-color: #ffffff; /* White */
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   background: rgba(255, 255, 255, 0.05);
    border-radius: 5px;
    width: 80%;
-   animation: slideIn 0.5s; /* Slide in animation */
-}
-
-.website-section h2 {
-   font-size: 28px;
-   color: #333333; /* Dark Gray */
-   margin-bottom: 20px;
+   backdrop-filter: blur(5px);
+   animation: slideIn 1.5s;
 }
 
 .website-section a {
-   color: #0066CC; /* Bright Blue */
+   color: #45A29E;
    text-decoration: none;
    font-size: 18px;
+   transition: color 1.5s;
 }
 
 .website-section a:hover {
-   color: #FF4081; /* Pink */
+   color: #66FCF1;
    text-decoration: underline;
 }
 
-.links-list {
-   list-style: none;
-   padding: 0;
-   margin: 0 auto;
-   display: inline-block;
-   text-align: left;
-}
-
-.links-list li {
-   margin: 10px 0;
-}
-
-.links-list li a {
-   text-decoration: none;
-   color: #0066CC; /* Bright Blue */
-   font-size: 18px;
-   transition: color 0.3s; /* Animation on hover */
-}
-
-.links-list li a:hover {
-   color: #333333; /* Dark Gray */
-}
-
-/* Projects Section */
-.projects-section {
-   text-align: center;
-   padding: 20px;
-}
-
+/* Projects */
 .projects-container {
    display: flex;
    flex-wrap: wrap;
@@ -137,105 +103,15 @@ nav ul li a:hover {
 
 .project {
    width: 45%;
-   background: #ffffff; /* White */
+   background: rgba(255, 255, 255, 0.05);
    border-radius: 5px;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
    overflow: hidden;
-   text-align: center;
-   position: relative;
-   transition: transform 0.3s ease-in-out;
+   transition: transform 1.5s;
+   backdrop-filter: blur(5px);
 }
 
 .project:hover {
    transform: scale(1.05);
-   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.project img {
-   width: 100%;
-   height: 200px;
-   object-fit: cover;
-}
-
-.project h2 {
-   margin: 10px 0;
-}
-
-.expand-button {
-   background: #4CAF50; /* Emerald Green */
-   border: none;
-   padding: 10px 15px;
-   border-radius: 5px;
-   cursor: pointer;
-   color: #fff;
-   font-size: 14px;
-   margin-bottom: 10px;
-   transition: background 0.3s ease; /* Animation on hover */
-}
-
-.expand-button:hover {
-   background: #45a049; /* Darker Emerald Green */
-}
-
-.project-details {
-   display: none;
-   text-align: left;
-   padding: 15px;
-   background-color: #f8f9fa; /* Very Light Gray */
-   border-top: 1px solid #ddd;
-   animation: fadeIn 0.5s; /* Fade in animation */
-}
-
-.action-buttons {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-top: 15px;
-}
-
-.github-link {
-   color: #000;
-   text-decoration: none;
-   background-color: #e5e5e5;
-   padding: 5px 10px;
-   border-radius: 3px;
-}
-
-.github-link:hover {
-   background-color: #ccc;
-}
-
-.star-button {
-   background: #FFD700;
-   border: none;
-   padding: 5px 10px;
-   border-radius: 3px;
-   cursor: pointer;
-   font-size: 14px;
-}
-
-/* Mobile View Adjustments */
-@media screen and (max-width: 768px) {
-   nav ul {
-       flex-direction: column;
-       padding: 10px;
-   }
-   .project {
-       width: 100%;
-   }
-   .projects-container {
-       flex-direction: column;
-       gap: 20px;
-   }
-   .website-section {
-       width: 95%;
-   }
-}
-
-.project-description {
-   font-size: 16px;
-   color: #555;
-   margin-top: 5px;
 }
 
 /* Animations */
@@ -259,15 +135,35 @@ nav ul li a:hover {
    }
 }
 
-.content {
-   display: grid;
-   justify-items: center;
-   align-items: center;
-   height: 100vh;
-   animation: slideIn 0.5s ease-in-out;
-   animation-fill-mode: forwards;
-   opacity: 0;
-   animation-delay: 0.5s;
-   animation-timing-function: ease-in-out;
-   padding: auto;   
+@keyframes gradientMove {
+   0% { background-position: 0% 50%; }
+   50% { background-position: 100% 50%; }
+   100% { background-position: 0% 50%; }
+}
+
+@keyframes decryptText {
+   from {
+       opacity: 0;
+       content: "█ █ █ █ █ █ █ █";
+   }
+   to {
+       opacity: 1;
+   }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+   nav ul {
+       flex-direction: column;
+       padding: 10px;
+   }
+   .project {
+       width: 100%;
+   }
+   .projects-container {
+       flex-direction: column;
+   }
+   .website-section {
+       width: 95%;
+   }
 }
