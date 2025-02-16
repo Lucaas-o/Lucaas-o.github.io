@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Select elements
     const expandButtons = document.querySelectorAll(".expand-button");
     const themeToggle = document.getElementById('theme-toggle');
-    const animationToggle = document.getElementById('animation-toggle');
     const body = document.body;
 
     // Theme toggle functionality
@@ -11,26 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('theme', body.dataset.theme); // Persist theme choice
     });
 
-    // Animation toggle functionality
-    animationToggle.addEventListener('click', () => {
-        if (body.style.animationName === 'none' || body.style.animationName === '') {
-            body.style.animationName = 'gradientMove';
-        } else {
-            body.style.animationName = 'none';
-        }
-        // Store animation state
-        localStorage.setItem('animation', body.style.animationName);
-    });
-
-    // Check for saved theme and animation state on page load
+    // Check for saved theme on page load
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    const savedAnimation = localStorage.getItem('animation') || 'gradientMove';
-    
     if (savedTheme) {
         body.dataset.theme = savedTheme;
-    }
-    if (savedAnimation !== 'gradientMove') {
-        body.style.animationName = savedAnimation;
     }
 
     // Expand button functionality for project details
@@ -75,5 +58,4 @@ document.addEventListener("DOMContentLoaded", () => {
 // Add buttons to HTML
 document.body.insertAdjacentHTML('beforeend', `
     <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
-    <button id="animation-toggle" class="animation-toggle">Toggle Animation</button>
 `);
