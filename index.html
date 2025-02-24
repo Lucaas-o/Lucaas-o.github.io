@@ -5,31 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Orge - Personal Portfolio</title>
-    <meta name="description" content="Welcome to my portfolio. I'm Lucas, a 16-year-old software developer passionate about coding and innovation.">
+    <meta name="description" content="Portfolio of Lucas Orge, a 16-year-old software developer passionate about coding and innovation.">
+    <meta name="keywords" content="Lucas Orge, software developer, portfolio, coding, projects">
+    <meta name="author" content="Lucas Orge">
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body data-theme="dark">
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <div class="main-title">
-        <h1>Lucaas-o.github.io</h1>
-        <p>My personal website</p>
-        <p>My name is Lucas, and I am a software developer.</p>
+        <h1 id="dynamic-greeting">Welcome to Lucaas-o.github.io</h1>
+        <p>Hi, I'm Lucas, a 16-year-old software developer.</p>
+        <p>Explore my work and get to know me!</p>
     </div>
-    
+
     <main>
-        <!-- About Section -->
-        <section class="website-section about">
-            <h2>About Me</h2>
+        <section class="website-section about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Me</h2>
             <ul class="links-list">
                 <li><a href="about.html#education">Education</a></li>
                 <li><a href="about.html#skills">Skills</a></li>
@@ -38,33 +39,36 @@
                 <li><a href="about.html#goals">Goals</a></li>
             </ul>
         </section>
-        
-        <!-- Projects Section -->
-        <section class="website-section projects">
-            <h2>Projects</h2>
+
+        <section class="website-section projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Featured Projects</h2>
             <div class="projects-container">
-                <a href="https://Lucaas-o.github.io" target="_blank" class="project">
+                <a href="https://lucaas-o.github.io" target="_blank" class="project" aria-label="Personal Website">
                     <div class="project-title">Personal Website</div>
                 </a>
-                <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" class="project">
+                <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" class="project" aria-label="Pomodoro App">
                     <div class="project-title">Pomodoro App</div>
                 </a>
-                <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank" class="project">
-                    <div class="project-title">Simple Encryptor/Decryptor</div>
+                <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank" class="project" aria-label="Encryptor/Decryptor">
+                    <div class="project-title">Encryptor/Decryptor</div>
                 </a>
-                <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank" class="project">
+                <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank" class="project" aria-label="Batch Toolbox">
                     <div class="project-title">Batch Toolbox</div>
                 </a>
             </div>
+            <p class="more-projects"><a href="projects.html">See All Projects</a></p>
         </section>
-        
-        <!-- Contact Section -->
-        <section class="website-section contact">
-            <h2>Contact</h2>
-            <p>Feel free to reach out to me through my <a href="contact.html">Contact page</a>.</p>
+
+        <section class="website-section contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Get in Touch</h2>
+            <p>Reach out via my <a href="contact.html">Contact page</a>.</p>
         </section>
     </main>
 
-    <script src="static\script.js"></script>
+    <footer>
+        <p>© 2025 Lucas Orge. All rights reserved.</p>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
+    </footer>
+    <script src="static/script.js"></script>
 </body>
 </html>

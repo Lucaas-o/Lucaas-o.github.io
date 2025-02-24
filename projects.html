@@ -4,104 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Orge's Project Showcase</title>
-    <meta name="description" content="Explore the coding projects of Lucas Orge, including personal websites, productivity tools, and more.">
+    <title>Lucas Orge - Projects</title>
+    <meta name="description" content="Explore coding projects by Lucas Orge, including a personal website, Pomodoro app, and more.">
+    <meta name="keywords" content="Lucas Orge, projects, software developer, coding">
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body data-theme="dark">
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
+    <div class="main-title">
+        <h1 id="dynamic-greeting">My Projects</h1>
+        <p>Check out some of my work below!</p>
+    </div>
+
     <main>
-        <section class="website-section projects-section">
-            <h1>Projects</h1>
-            <p>These are some of the projects I have worked on:</p>
+        <section class="website-section projects-section" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Project Showcase</h2>
+            <div class="project-filter">
+                <button data-filter="all" class="filter-btn active">All</button>
+                <button data-filter="web" class="filter-btn">Web</button>
+                <button data-filter="tools" class="filter-btn">Tools</button>
+            </div>
             <div class="projects-container">
-                <div class="project" data-project="personal-website">
-                    <a href="https://Lucaas-o.github.io" target="_blank">
-                        <img src="media\PersonalWebsitePreview.png" alt="Personal Website Screenshot" />
+                <div class="project" data-category="web">
+                    <a href="https://lucaas-o.github.io" target="_blank" aria-label="Personal Website">
+                        <img src="media/PersonalWebsitePreview.png" alt="Personal Website Screenshot" loading="lazy">
                     </a>
                     <div class="project-title">Personal Website</div>
-                    <button class="expand-button">View Details</button>
-                    <div class="project-details" style="display: none;">
-                        <h3>Developers:</h3>
-                        <ul>
-                            <li>Lucas</li>
-                        </ul>
-                        <h3>Description:</h3>
-                        <p>Explore my personal portfolio website showcasing my skills and projects.</p>
-                        <div class="action-buttons">
-                            <a href="https://github.com/Lucaas-o" target="_blank" class="github-link">GitHub</a>
-                        </div>
+                    <button class="expand-button" aria-expanded="false">View Details</button>
+                    <div class="project-details">
+                        <p>A portfolio showcasing my skills and projects.</p>
+                        <a href="https://github.com/Lucaas-o" target="_blank" class="github-link">GitHub</a>
                     </div>
                 </div>
-
-                <div class="project" data-project="pomodoro-app">
-                    <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank">
-                        <img src="media\PomodoroTimerPreview.png" alt="Pomodoro App Screenshot" />
+                <div class="project" data-category="tools">
+                    <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" aria-label="Pomodoro App">
+                        <img src="media/PomodoroTimerPreview.png" alt="Pomodoro App Screenshot" loading="lazy">
                     </a>
                     <div class="project-title">Pomodoro App</div>
-                    <button class="expand-button">View Details</button>
-                    <div class="project-details" style="display: none;">
-                        <h3>Developers:</h3>
-                        <ul>
-                            <li>Lucas</li>
-                        </ul>
-                        <h3>Description:</h3>
-                        <p>A productivity app implementing the Pomodoro technique for time management.</p>
-                        <div class="action-buttons">
-                            <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" class="github-link">GitHub</a>
-                        </div>
+                    <button class="expand-button" aria-expanded="false">View Details</button>
+                    <div class="project-details">
+                        <p>A time management tool using the Pomodoro technique.</p>
+                        <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" class="github-link">GitHub</a>
                     </div>
                 </div>
-
-                <div class="project" data-project="encryptor-decryptor">
-                    <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank">
-                        <img src="media\EncryptionDecryptionPreview.png" alt="Encryptor/Decryptor Screenshot" />
+                <div class="project" data-category="tools">
+                    <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank" aria-label="Encryptor/Decryptor">
+                        <img src="media/EncryptionDecryptionPreview.png" alt="Encryptor/Decryptor Screenshot" loading="lazy">
                     </a>
                     <div class="project-title">Encryptor/Decryptor</div>
-                    <button class="expand-button">View Details</button>
-                    <div class="project-details" style="display: none;">
-                        <h3>Developers:</h3>
-                        <ul>
-                            <li>Lucas</li>
-                        </ul>
-                        <h3>Description:</h3>
-                        <p>A basic tool for encrypting and decrypting text using custom algorithms.</p>
-                        <div class="action-buttons">
-                            <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank" class="github-link">GitHub</a>
-                        </div>
+                    <button class="expand-button" aria-expanded="false">View Details</button>
+                    <div class="project-details">
+                        <p>A tool for encrypting and decrypting text.</p>
+                        <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank" class="github-link">GitHub</a>
                     </div>
                 </div>
-
-                <div class="project" data-project="batch-toolbox">
-                    <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank">
-                        <img src="media\BatchToolboxPreview.png" alt="Batch Toolbox Screenshot" />
+                <div class="project" data-category="tools">
+                    <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank" aria-label="Batch Toolbox">
+                        <img src="media/BatchToolboxPreview.png" alt="Batch Toolbox Screenshot" loading="lazy">
                     </a>
                     <div class="project-title">Batch Toolbox</div>
-                    <button class="expand-button">View Details</button>
-                    <div class="project-details" style="display: none;">
-                        <h3>Developers:</h3>
-                        <ul>
-                            <li>Lucas</li>
-                        </ul>
-                        <h3>Description:</h3>
-                        <p>A collection of batch scripts to automate common tasks.</p>
-                        <div class="action-buttons">
-                            <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank" class="github-link">GitHub</a>
-                        </div>
+                    <button class="expand-button" aria-expanded="false">View Details</button>
+                    <div class="project-details">
+                        <p>Batch scripts for automating tasks.</p>
+                        <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank" class="github-link">GitHub</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <footer>
+        <p>© 2025 Lucas Orge. All rights reserved.</p>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
+    </footer>
     <script src="static/script.js"></script>
 </body>
 </html>

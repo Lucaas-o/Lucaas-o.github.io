@@ -1,61 +1,85 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Select elements
-    const expandButtons = document.querySelectorAll(".expand-button");
-    const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
+    const themeToggle = document.querySelector("#theme-toggle");
+    const expandButtons = document.querySelectorAll(".expand-button");
+    const scrollToTopBtn = document.querySelector("#scroll-to-top");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projects = document.querySelectorAll(".project");
+    const greeting = document.querySelector("#dynamic-greeting");
 
-    // Theme toggle functionality
-    themeToggle.addEventListener('click', () => {
-        body.dataset.theme = body.dataset.theme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', body.dataset.theme); // Persist theme choice
+    // Theme toggle fix
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    body.dataset.theme = savedTheme;
+    themeToggle.addEventListener("click", () => {
+        body.dataset.theme = body.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", body.dataset.theme);
     });
 
-    // Check for saved theme on page load
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    if (savedTheme) {
-        body.dataset.theme = savedTheme;
-    }
+    // Dynamic greeting
+    const hour = new Date().getHours();
+    let timeGreeting = "Hello";
+    if (hour < 12) timeGreeting = "Good Morning";
+    else if (hour < 18) timeGreeting = "Good Afternoon";
+    else timeGreeting = "Good Evening";
+    greeting.textContent = `${timeGreeting}, Welcome to My Projects`;
 
-    // Expand button functionality for project details
-    expandButtons.forEach(button => {
+    // Project details toggle fix
+    expandButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const projectDetails = button.nextElementSibling;
-            if (projectDetails.style.display === "block") {
-                projectDetails.style.display = "none";
-                projectDetails.style.opacity = "0"; // Fade out
-            } else {
-                projectDetails.style.display = "block";
-                projectDetails.style.opacity = "0"; // Reset opacity for fade in
-                projectDetails.offsetHeight; // Trigger reflow for animation
-                projectDetails.style.transition = "opacity 0.5s";
-                projectDetails.style.opacity = "1"; // Fade in
-            }
+            const project = button.closest(".project");
+            const details = project.querySelector(".project-details");
+            const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+            // Collapse all other details
+            document.querySelectorAll(".project-details").forEach((d) => {
+                if (d !== details) {
+                    d.style.display = "none";
+                    d.previousElementSibling.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            button.setAttribute("aria-expanded", !isExpanded);
+            details.style.display = isExpanded ? "none" : "block";
+            details.style.opacity = isExpanded ? "0" : "1";
         });
     });
 
-    // Generate descriptions based on project titles
-    const descriptions = {
-        "Personal Website": "Explore my personal portfolio website showcasing my skills and projects.",
-        "Pomodoro App": "A productivity app implementing the Pomodoro technique for time management.",
-        "Encryptor/Decryptor": "A basic tool for encrypting and decrypting text using custom algorithms.",
-        "Batch Toolbox": "A collection of batch scripts to automate common tasks."
-    };
+    // Scroll-to-top button
+    window.addEventListener("scroll", () => {
+        scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-    const projectsList = document.querySelectorAll('.project');
-    projectsList.forEach(project => {
-        const titleElement = project.querySelector('.project-title');
-        if (titleElement) {
-            const title = titleElement.textContent.trim();
-            const description = descriptions[title] || "A fascinating project to explore!";
-            const descElem = document.createElement("p");
-            descElem.textContent = description;
-            descElem.classList.add("project-description");
-            project.appendChild(descElem);
-        }
+    // Project filter
+    filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const filter = btn.dataset.filter;
+
+            projects.forEach((project) => {
+                const category = project.dataset.category;
+                project.style.display =
+                    filter === "all" || category === filter ? "block" : "none";
+            });
+        });
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.querySelector(anchor.getAttribute("href")).scrollIntoView({
+                behavior: "smooth",
+            });
+        });
     });
 });
 
-// Add buttons to HTML
-document.body.insertAdjacentHTML('beforeend', `
-    <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
-`);
+// Dynamically add theme toggle button
+document.body.insertAdjacentHTML(
+    "beforeend",
+    `<button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>`
+);
