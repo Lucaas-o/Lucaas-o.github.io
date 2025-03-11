@@ -2,91 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Orge - Projects</title>
-    <meta name="description" content="Explore coding projects by Lucas Orge, including a personal website, Pomodoro app, and more.">
-    <meta name="keywords" content="Lucas Orge, projects, software developer, coding">
+    <title>Projects - Lucas Orge</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body data-theme="dark">
     <header>
         <nav aria-label="Main navigation">
-            <ul>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-
-    <div class="main-title">
-        <h1 id="dynamic-greeting">My Projects</h1>
-        <p>Check out some of my work below!</p>
-    </div>
-
     <main>
         <section class="website-section projects-section" aria-labelledby="projects-heading">
-            <h2 id="projects-heading">Project Showcase</h2>
-            <div class="project-filter">
-                <button data-filter="all" class="filter-btn active">All</button>
-                <button data-filter="web" class="filter-btn">Web</button>
-                <button data-filter="tools" class="filter-btn">Tools</button>
-            </div>
+            <h2 id="projects-heading">My Projects</h2>
             <div class="projects-container">
-                <div class="project" data-category="web">
-                    <a href="https://lucaas-o.github.io" target="_blank" aria-label="Personal Website">
-                        <img src="media/PersonalWebsitePreview.png" alt="Personal Website Screenshot" loading="lazy">
-                    </a>
-                    <div class="project-title">Personal Website</div>
-                    <button class="expand-button" aria-expanded="false">View Details</button>
-                    <div class="project-details">
-                        <p>A portfolio showcasing my skills and projects.</p>
-                        <a href="https://github.com/Lucaas-o" target="_blank" class="github-link">GitHub</a>
-                    </div>
-                </div>
-                <div class="project" data-category="tools">
-                    <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" aria-label="Pomodoro App">
-                        <img src="media/PomodoroTimerPreview.png" alt="Pomodoro App Screenshot" loading="lazy">
-                    </a>
-                    <div class="project-title">Pomodoro App</div>
-                    <button class="expand-button" aria-expanded="false">View Details</button>
-                    <div class="project-details">
-                        <p>A time management tool using the Pomodoro technique.</p>
-                        <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" class="github-link">GitHub</a>
-                    </div>
-                </div>
-                <div class="project" data-category="tools">
-                    <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank" aria-label="Encryptor/Decryptor">
-                        <img src="media/EncryptionDecryptionPreview.png" alt="Encryptor/Decryptor Screenshot" loading="lazy">
-                    </a>
-                    <div class="project-title">Encryptor/Decryptor</div>
-                    <button class="expand-button" aria-expanded="false">View Details</button>
-                    <div class="project-details">
-                        <p>A tool for encrypting and decrypting text.</p>
-                        <a href="https://github.com/Lucaas-o/EncryptorDecryptor" target="_blank" class="github-link">GitHub</a>
-                    </div>
-                </div>
-                <div class="project" data-category="tools">
-                    <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank" aria-label="Batch Toolbox">
-                        <img src="media/BatchToolboxPreview.png" alt="Batch Toolbox Screenshot" loading="lazy">
-                    </a>
-                    <div class="project-title">Batch Toolbox</div>
-                    <button class="expand-button" aria-expanded="false">View Details</button>
-                    <div class="project-details">
-                        <p>Batch scripts for automating tasks.</p>
-                        <a href="https://github.com/Lucaas-o/Batch-Toolbox" target="_blank" class="github-link">GitHub</a>
-                    </div>
-                </div>
+                <!-- Added via JavaScript -->
             </div>
         </section>
     </main>
-
     <footer>
         <p>© 2025 Lucas Orge. All rights reserved.</p>
         <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
     </footer>
-    <script src="static/script.js"></script>
+    <script src="static/main.js" type="module"></script>
+    <script>
+        // Project filtering
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projects = document.querySelectorAll(".project");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                filterButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                const filter = button.dataset.filter;
+                projects.forEach(project => {
+                    project.style.display = (filter === "all" || project.dataset.category === filter) ? "block" : "none";
+                });
+            });
+        });
+    </script>
 </body>
 </html>

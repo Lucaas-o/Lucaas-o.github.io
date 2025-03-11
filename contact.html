@@ -2,46 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Lucas Orge</title>
-    <meta name="description" content="Contact Lucas Orge via Discord, Email, Twitter, or GitHub for collaboration or inquiries.">
-    <meta name="keywords" content="Lucas Orge, contact, software developer">
+    <title>Contact - Lucas Orge</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body data-theme="dark">
     <header>
         <nav aria-label="Main navigation">
-            <ul>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html" aria-current="page">Contact</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-
-    <div class="main-title">
-        <h1>Contact Me</h1>
-        <p>Let's connect! Reach out through any of these channels.</p>
-    </div>
-
     <main>
         <section class="website-section contact" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Contact Options</h2>
-            <ul class="contact-options">
-                <li><strong>Discord:</strong> <span>lucass.22</span></li>
-                <li><strong>Email:</strong> <a href="mailto:lucas.orge.1@gmail.com">lucas.orge.1@gmail.com</a></li>
-                <li><strong>Twitter:</strong> <a href="https://x.com/lucass814368" target="_blank">@lucas_orge</a></li>
-                <li><strong>GitHub:</strong> <a href="https://github.com/Lucaas-o" target="_blank">Lucaas-o</a></li>
-            </ul>
-            <p class="note">Note: Direct messaging isn't available due to static hosting. Use the options above!</p>
+            <h2 id="contact-heading">Contact Me</h2>
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit" class="hero__cta">Send</button>
+            </form>
+            <div class="social-links">
+                <a href="https://github.com/Lucaas-o" target="_blank">
+                    <img class="theme-logo github-logo" src="media/github-mark-white.png" alt="GitHub Logo">
+                </a>
+                <a href="https://x.com/lucass814368" target="_blank">
+                    <img class="theme-logo x-logo" src="media/logo-white.png" alt="X (Twitter) Logo">
+                </a>
+            </div>
         </section>
     </main>
-
     <footer>
-        <p>&copy; 2025 Lucas Orge. All rights reserved.</p>
+        <p>© 2025 Lucas Orge. All rights reserved.</p>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
     </footer>
-    <script src="static/script.js"></script>
+    <script src="static/main.js" type="module"></script>
 </body>
 </html>

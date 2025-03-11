@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Lucas Orge</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body data-theme="dark">
+    <header>
+      <nav aria-label="Main navigation">
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+    </header>
+    <main>
+        <section class="website-section blog" aria-labelledby="blog-heading">
+            <h2 id="blog-heading">Blog Posts</h2>
+            <div class="blog-posts">
+                <article class="blog-post">
+                    <h3><a href="blog/post1.html">How I Built My Pomodoro App</a></h3>
+                    <p>Learn about the challenges and solutions in creating a Pomodoro timer with JavaScript.</p>
+                    <time datetime="2024-10-01">October 1, 2024</time>
+                </article>
+                <article class="blog-post">
+                    <h3><a href="blog/post2.html">Getting Started with Python for Beginners</a></h3>
+                    <p>A guide to setting up Python and writing your first script.</p>
+                    <time datetime="2024-10-15">October 15, 2024</time>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Lucas Orge. All rights reserved.</p>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
+    </footer>
+    <script src="static/main.js" type="module"></script>
+</body>
+</html>

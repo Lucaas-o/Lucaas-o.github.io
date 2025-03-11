@@ -1,52 +1,29 @@
-# Portfolio
+# Lucas Orge's Portfolio
 
-Welcome to my personal portfolio website! This site showcases my skills, projects, and experiences as a software developer.
+Welcome to my personal portfolio website! I’m Lucas, a 16-year-old software developer passionate about coding, music, and technology. This site showcases my projects, skills, and journey.
 
-## About Me
+## Features
+- **Responsive Design:** Works seamlessly on all devices.
+- **Interactive Projects:** Explore my work with modals and live demos.
+- **Blog:** Read my coding insights and project updates.
+- **Theme Toggle:** Switch between light and dark modes.
 
-I am Lucas, a passionate software developer with a keen interest in technology and programming. I am currently in high school, planning to attend college and pursue a career in software development.
+## Tech Stack
+- HTML5, CSS3, JavaScript (ES6)
+- Tools: VS Code, Git, GitHub Pages
 
 ## Projects
+- **[Personal Website](https://lucaas-o.github.io):** My portfolio hub.
+- **[Pomodoro App](https://github.com/Lucaas-o/pomodoro-app):** A productivity tool with work/break cycles.
+- **[Universal Decryptor](https://github.com/Lucaas-o/Universal-Decryptor):** A Python-based cipher solver.
+- **[Batch Toolbox](https://github.com/Lucaas-o/Batch-Toolbox):** Windows utility scripts.
 
-Here are some of the projects I have worked on:
+## Setup
+1. Clone the repo: `git clone https://github.com/Lucaas-o/Lucaas-o.github.io.git`
+2. Open `index.html` in a browser or use a local server (e.g., `npx serve`).
 
-- **[Personal Website](https://Lucaas-o.github.io):** Explore my personal portfolio website showcasing my skills and projects.
-- **[Pomodoro App](https://github.com/Lucaas-o/pomodoro-app):** A productivity app implementing the Pomodoro technique for time management.
-- **[Encryptor/Decryptor](https://github.com/Lucaas-o/EncryptorDecryptor):** A basic tool for encrypting and decrypting text using custom algorithms.
-- **[Batch Toolbox](https://github.com/Lucaas-o/Batch-Toolbox):** A collection of batch scripts to automate common tasks.
+## Contributing
+Feel free to open issues or submit pull requests!
 
-## Skills
-
-- HTML
-- CSS
-- Python
-- JavaScript
-- Batch File
-
-## Education
-
-- Currently in High school
-- Planning to go to college after High school
-
-## Experience
-
-- None
-
-## Interests
-
-- Technology
-- Programming
-- Video Games
-
-## Goals
-
-- Graduate High school
-- Go to college
-- Get a job as a software developer
-
-## Contact
-
-Feel free to reach out to me through my [Contact page](contact.html) or via Discord.
-
-Thank you for visiting my website!
-
+## License
+MIT License © 2025 Lucas Orge
