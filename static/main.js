@@ -54,7 +54,9 @@ const loadFeaturedProjects = () => {
         { title: "Python Mini-Projects", img: "media/python-miniprojects.png", link: "https://github.com/Lucaas-o/python-miniprojects" },
         { title: "Human-like Typer", img: "media/human-like-typer.png", link: "https://github.com/Lucaas-o/human-like-typer" },
         { title: "Expenses Tracker", img: "media/ExpensesTracker.png", link: "https://github.com/Lucaas-o/ExpensesTracker" },
-        { title: "Universal Decryptor", img: "media/Universal-Decryptor.png", link: "https://github.com/Lucaas-o/Universal-Decryptor" }
+        { title: "Universal Decryptor", img: "media/Universal-Decryptor.png", link: "https://github.com/Lucaas-o/Universal-Decryptor" },
+        { title: "Password Generator", img: "media/PasswordGenerator.png", link: "https://github.com/Lucaas-o/PasswordGenerator" },
+        { title: "Weather App", img: "media/WeatherApp.png", link: "https://github.com/Lucaas-o/WeatherDashboard" },
     ];
     featuredProjects.forEach(project => {
         const projectCard = document.createElement("div");
