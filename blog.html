@@ -8,38 +8,52 @@
 </head>
 <body data-theme="dark">
     <header>
-      <nav aria-label="Main navigation">
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-        <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+        <nav aria-label="Main navigation">
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html" aria-current="page">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
     <main>
-        <section class="website-section blog" aria-labelledby="blog-heading">
+        <section class="website-section blog scroll-reveal" aria-labelledby="blog-heading">
             <h2 id="blog-heading">Blog Posts</h2>
             <div class="blog-posts">
                 <article class="blog-post">
-                    <h3><a href="blog/post1.html">How I Built My Pomodoro App</a></h3>
-                    <p>Learn about the challenges and solutions in creating a Pomodoro timer with JavaScript.</p>
-                    <time datetime="2024-10-01">October 1, 2024</time>
+                    <img src="media/blog-post1.jpg" alt="My first Website Project" class="blog-post__image">
+                    <div class="blog-post__content">
+                        <h3><a href="blog/post1.html">My First Website Project!</a></h3>
+                        <p>A tour inside my first HTML, CSS, and JS project.</p>
+                        <time datetime="2023-11-19">November 19, 2023</time>
+                    </div>
                 </article>
                 <article class="blog-post">
-                    <h3><a href="blog/post2.html">Getting Started with Python for Beginners</a></h3>
-                    <p>A guide to setting up Python and writing your first script.</p>
-                    <time datetime="2024-10-15">October 15, 2024</time>
+                    <img src="media/blog-post2.jpg" alt="Getting Started with Python for Beginners" class="blog-post__image">
+                    <div class="blog-post__content">
+                        <h3><a href="blog/post2.html">Getting Started with Python for Beginners</a></h3>
+                        <p>A guide to setting up Python and writing your first script.</p>
+                        <time datetime="2024-07-31">July 31, 2024</time>
+                    </div>
+                </article>
+                <article class="blog-post">
+                    <img src="media/blog-post3.jpg" alt="How I Built My Pomodoro App" class="blog-post__image">
+                    <div class="blog-post__content">
+                        <h3><a href="blog/post3.html">How I Built My Pomodoro App</a></h3>
+                        <p>Learn about the challenges and solutions in creating a Pomodoro timer with JavaScript.</p>
+                        <time datetime="2024-12-31">December 31, 2024</time>
+                    </div>
                 </article>
             </div>
         </section>
     </main>
     <footer>
         <p>© 2025 Lucas Orge. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
     </footer>
     <script src="static/main.js" type="module"></script>
 </body>

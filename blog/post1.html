@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Website Project! - Lucas Orge</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-theme="dark">
+    <header>
+        <nav aria-label="Main navigation">
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+    </header>
+    <main>
+        <article class="website-section blog-post scroll-reveal" aria-labelledby="post-heading">
+            <h2 id="post-heading">My First Website Project!</h2>
+            <time datetime="2023-11-19">November 19, 2023</time>
+            <img src="..\media\siteSNT.png" alt="My page from the project" class="blog-post__image">
+            <div class="blog-post__content">
+                <p>Welcome to a tour of my first website project! This was my initial dive into web development, where I explored HTML, CSS, and JavaScript to create a site about Kanye West. It features a biography, awards, collaborations, and more, all brought to life with interactive elements. Let me guide you through what I built, the hurdles I encountered, and how I overcame them.</p>
+
+                <h3>The Structure: HTML</h3>
+                <p>I began with the HTML structure in <code>page1.html</code>. The website is designed to showcase Kanye West’s life and career, with a header, navigation, and several content sections. Here’s what I included:</p>
+                <ul>
+                    <li><strong>Header and Navigation:</strong> The header has a logo and a navigation bar with links to other pages (though only Kanye West’s page is active here). I aimed for a clean, centered layout.</li>
+                    <li><strong>Main Content:</strong> The main section features an interactive image and multiple articles—biography, awards, collaborations, activism, and conclusions—each with text and an image.</li>
+                    <li><strong>Interactive Audio Image:</strong> A standout feature is an image of Kanye West’s "Graduation" album that plays "I Wonder" when clicked, my first taste of JavaScript interactivity.</li>
+                </ul>
+
+                <h3>Styling with CSS</h3>
+                <p>In <code>style.css</code>, I styled the site to make it visually appealing with a modern, colorful design. Here are some key styling decisions:</p>
+                <ul>
+                    <li><strong>Color Scheme:</strong> The body has a purple background, the navigation bar is a soft blue, and each article has a unique pastel shade (e.g., light blue for biography, peach for awards) to differentiate them.</li>
+                    <li><strong>Typography:</strong> I chose "Segoe UI" for a sleek, readable look. Headings have a dark background with white text for contrast.</li>
+                    <li><strong>Images:</strong> Images are capped at a max-width of 550px with rounded corners and float left or right, letting text wrap naturally.</li>
+                    <li><strong>Hover Effects:</strong> Navigation links change color and scale up slightly on hover, adding a playful touch without JavaScript.</li>
+                    <li><strong>Flashing Text:</strong> A "Cliquez sur l'image!" prompt flashes above the album image using a CSS animation to draw attention.</li>
+                </ul>
+
+                <h3>Interactivity with JavaScript</h3>
+                <p>The JavaScript in <code>scriptpage2.js</code> brought the site to life. The main interactive feature is the audio playback tied to the album image:</p>
+                <ul>
+                    <li><strong>Audio Playback:</strong> Clicking the "Graduation" image toggles the song "I Wonder." If it’s paused, it plays; if playing, it pauses and resets.</li>
+                    <li><strong>Visual Feedback:</strong> When the audio plays, the image stays the same, but the flashing text disappears. When paused or ended, the image swaps to a different Kanye West photo.</li>
+                    <li><strong>Code Logic:</strong> I used a simple function, <code>mettre_musique()</code>, to handle the play/pause logic and update the DOM accordingly.</li>
+                </ul>
+
+                <h3>Challenges and Solutions</h3>
+                <p>Building this site came with its share of obstacles. Here’s how I tackled them:</p>
+                <ul>
+                    <li><strong>Image Overflow:</strong> Early on, images stretched beyond their containers, ruining the layout. I added <code>max-width</code> and <code>height</code> properties in CSS to keep them in check.</li>
+                    <li><strong>Audio Control:</strong> I initially struggled to stop the audio cleanly. Using <code>audio.paused</code> and <code>audio.currentTime = 0</code>, I ensured it reset properly when paused.</li>
+                    <li><strong>Flashing Text Overload:</strong> The flashing "Cliquez sur l'image!" text was too fast and annoying. I slowed the animation and adjusted opacity for a subtler effect.</li>
+                    <li><strong>Navigation Usability:</strong> The hover effects on the nav links were too faint at first. Adding a <code>transform: scale(1.1)</code> made them pop without overcomplicating the code.</li>
+                </ul>
+
+                <h3>My Thought Process</h3>
+                <p>As I built this site, I wanted it to be informative yet engaging. I chose Kanye West because I admire his creativity, and I saw this as a chance to blend content with interactivity. Sketching the layout beforehand helped me organize the articles and navigation, saving me from endless tweaking later.</p>
+                <p>CSS became my favorite part—I loved how I could create hover effects and animations without extra scripts. It made the site feel dynamic with minimal effort. JavaScript, though trickier, was a thrill once I got the audio and image swap working. It felt like the site had a pulse!</p>
+                <p>I learned to test small changes—like adjusting image sizes or animation timing—before moving on. This kept me from getting overwhelmed and let me see progress step-by-step.</p>
+
+                <h3>Conclusion</h3>
+                <p>This project was my gateway to web development. It taught me how HTML structures a page, CSS brings it style, and JavaScript adds life. I’m proud of the result—a functional, colorful tribute to Kanye West—and it’s fueled my excitement to keep learning and creating.</p>
+            </div>
+            <a href="../blog.html" class="hero__cta">Back to Blog</a>
+        </article>
+    </main>
+    <footer>
+        <p>© 2025 Lucas Orge. All rights reserved.</p>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+    </footer>
+    <script src="../static/main.js" type="module"></script>
+</body>
+</html>

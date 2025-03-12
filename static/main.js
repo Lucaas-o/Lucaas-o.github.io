@@ -4,13 +4,11 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navList = document.querySelector(".nav-list");
 const scrollToTopBtn = document.querySelector("#scroll-to-top");
 
-// Theme toggle with auto-detect and logo swap for all theme-dependent logos
+// Theme toggle
 const initTheme = () => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     body.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
-    
-    // Update all theme-dependent logos on initialization
     updateThemeLogos();
 
     const themeToggle = document.querySelector("#theme-toggle");
@@ -23,7 +21,6 @@ const initTheme = () => {
     }
 };
 
-// Function to update all logos with class .theme-logo
 const updateThemeLogos = () => {
     const themeLogos = document.querySelectorAll(".theme-logo");
     themeLogos.forEach(logo => {
@@ -32,16 +29,15 @@ const updateThemeLogos = () => {
         } else if (logo.classList.contains("x-logo")) {
             logo.src = body.dataset.theme === "dark" ? "media/logo-white.png" : "media/logo-black.png";
         }
-        // Add more conditions here if you have additional logos to toggle
     });
 };
 
-// Hamburger menu toggle
+// Menu toggle
 menuToggle.addEventListener("click", () => {
     navList.classList.toggle("active");
 });
 
-// Scroll-to-top button
+// Scroll-to-top
 window.addEventListener("scroll", () => {
     scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
@@ -49,9 +45,10 @@ scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// Dynamically load featured projects
+// Featured projects
 const loadFeaturedProjects = () => {
     const projectsContainer = document.querySelector(".projects-container");
+    if (!projectsContainer) return;
     const featuredProjects = [
         { title: "Pomodoro App", img: "media/PomodoroTimerPreview.png", link: "https://github.com/Lucaas-o/pomodoro-app" },
         { title: "Python Mini-Projects", img: "media/python-miniprojects.png", link: "https://github.com/Lucaas-o/python-miniprojects" },
@@ -61,7 +58,7 @@ const loadFeaturedProjects = () => {
     ];
     featuredProjects.forEach(project => {
         const projectCard = document.createElement("div");
-        projectCard.classList.add("project");
+        projectCard.classList.add("project", "scroll-reveal");
         projectCard.innerHTML = `
             <a href="${project.link}" target="_blank" aria-label="${project.title}">
                 <img src="${project.img}" alt="${project.title} Screenshot" loading="lazy">
@@ -72,7 +69,7 @@ const loadFeaturedProjects = () => {
     });
 };
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault();
@@ -82,7 +79,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Typing animation
+const typeHeroSubtitle = () => {
+    const heroSubtitle = document.querySelector(".hero-subtitle");
+    if (heroSubtitle) {
+        const text = "Coding the Future at 16";
+        heroSubtitle.textContent = "";
+        let index = 0;
+        function typeText() {
+            if (index < text.length) {
+                heroSubtitle.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, 100);
+            }
+        }
+        typeText();
+    }
+};
+
+// Scroll reveal animation
+const handleScrollAnimation = () => {
+    const elements = document.querySelectorAll(".scroll-reveal");
+    elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (rect.top <= windowHeight * 0.9) {
+            el.classList.add("active");
+        }
+    });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     initTheme();
     loadFeaturedProjects();
+    typeHeroSubtitle();
+    handleScrollAnimation();
 });
+
+window.addEventListener("scroll", handleScrollAnimation);
