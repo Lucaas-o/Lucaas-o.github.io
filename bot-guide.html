@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Guide - Lucas O.</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body data-theme="dark">
+    <header>
+        <nav aria-label="Main navigation">
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="bot-request.html">Bot Request</a></li>
+                <li><a href="bot-guide.html" aria-current="page">Bot Guide</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+    </header>
+    <main>
+        <section class="website-section bot-guide scroll-reveal" aria-labelledby="bot-guide-heading">
+            <h2 id="bot-guide-heading">How to Run Your Discord Bot</h2>
+            <p>Hey there! Your new bot is ready to make your server awesome, but it needs to stay online to work. Don’t worry—I’ve made this super easy! Follow these steps to run it on your Android phone or a computer you can leave on. No tech skills needed, just a little patience!</p>
+
+            <h3>What You’ll Need</h3>
+            <ul>
+                <li>An Android phone OR a computer that can stay powered on.</li>
+                <li>A charger to keep your device plugged in.</li>
+                <li>A steady Wi-Fi connection (mobile data works too, but Wi-Fi is best).</li>
+                <li>The bot folder I’ll send you—it’s got everything ready to go!</li>
+            </ul>
+
+            <h3>Step 1: Get the App</h3>
+            <p>We’ll use a free app called Termux to run your bot. It’s like a mini-computer on your phone!</p>
+            <ul>
+                <li><strong>For Phones:</strong> Download Termux from <a href="https://f-droid.org/packages/com.termux/" target="_blank">this link</a>. (Don’t use Google Play—it’s an old version that might not work.)</li>
+                <li><strong>For Computers:</strong> You can use this too, but it’s easiest on a phone. If you’re on a computer, just let me know—I’ll adjust the steps!</li>
+                <li>Open Termux after it’s installed. You’ll see a black screen with text—that’s normal!</li>
+            </ul>
+
+            <h3>Step 2: Set Up Termux</h3>
+            <p>Let’s get Termux ready to run your bot. Follow these exactly:</p>
+            <ol>
+                <li>Type this into Termux and press Enter: <code>pkg update</code>. Wait until it finishes—it might take a minute or two.</li>
+                <li>Type this next and press Enter: <code>pkg install nodejs</code>. This adds Node.js, which runs your bot. Wait again—it’s quick!</li>
+                <li>Type <code>node -v</code> and press Enter. If you see something like “v18.0.0,” you’re good! If not, message me.</li>
+            </ol>
+
+            <h3>Step 3: Add Your Bot Files</h3>
+            <p>I’ll send you a ZIP file with your bot. Here’s how to get it ready in Termux:</p>
+            <ol>
+                <li>Download the ZIP file I send you (e.g., “YourBot.zip”) and save it to your <strong>Downloads</strong> folder on your phone. Check your email or Discord for it!</li>
+                <li><strong>Extract the Files:</strong> You’ve got two easy ways to do this:
+                    <ul>
+                        <li><strong>Option 1 - Use Termux:</strong> In Termux, type <code>pkg install unzip</code> and press Enter. Then type <code>unzip /storage/emulated/0/Download/YourBot.zip -d ~/</code> and press Enter. This puts the files in your Termux home folder.</li>
+                        <li><strong>Option 2 - Manually:</strong> Tap the ZIP file in your Downloads folder, choose “Extract,” and pick “Home” or “Termux” as the spot. If you don’t see “Termux,” extract to Downloads, then move the folder to Termux later (I’ll help if needed).</li>
+                    </ul>
+                </li>
+                <li>In Termux, type <code>cd ~/YourBot</code> and press Enter. (If your bot’s name is different, I’ll tell you what to type!)</li>
+                <li>Type <code>ls</code> and press Enter. Look for <code>index.js</code>—that’s your bot file! If you see a <code>src/</code> folder instead, type <code>cd src</code>, press Enter, then <code>ls</code> again. You should see <code>index.js</code> or <code>bot.js</code>. If not, message me!</li>
+            </ol>
+
+            <h3>Step 4: Start Your Bot</h3>
+            <p>Time to bring your bot to life!</p>
+            <ol>
+                <li>In Termux, type <code>node index.js</code> (or <code>node bot.js</code> if that’s what you see) and press Enter.</li>
+                <li>Wait a few seconds—you’ll see “Your bot is online!” (or a similar message). That means it’s working!</li>
+                <li>Go to your Discord server and test it—try a command like <code>!hello</code> (I’ll tell you the exact commands).</li>
+            </ol>
+
+            <h3>Step 5: Keep It Running</h3>
+            <p>Your bot needs to stay on to work. Here’s how to make sure it doesn’t stop:</p>
+            <ul>
+                <li><strong>Plug It In:</strong> Keep your phone or computer charging so it doesn’t turn off.</li>
+                <li><strong>Wi-Fi On:</strong> Stay connected to Wi-Fi. If it drops, the bot pauses until it’s back.</li>
+                <li><strong>Don’t Close Termux:</strong> Leave the Termux app open. If your phone locks, that’s fine—just don’t swipe it away.</li>
+                <li><strong>If It Stops:</strong> If your phone restarts or Termux closes, just open Termux, type <code>cd ~/YourBot</code> (or <code>cd ~/YourBot/src</code> if it’s in src), then <code>node index.js</code> again. Easy fix!</li>
+            </ul>
+
+            <h3>What If Something Goes Wrong?</h3>
+            <p>I’ve made this as simple as possible, but if anything doesn’t work (like Termux won’t open or the bot won’t start), don’t panic! Just message me on Discord or email with what you see, and I’ll fix it fast. You won’t be stuck—I promise!</p>
+
+            <h3>Why This is Awesome</h3>
+            <p>Your bot runs right on your phone or computer—no extra costs, no complicated stuff! It’s light and won’t slow anything down. Get ready to show it off to your server in just a few days!</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Lucas O. All rights reserved.</p>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+    </footer>
+    <script src="static/main.js" type="module"></script>
+</body>
+</html>

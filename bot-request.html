@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Request - Lucas O.</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body data-theme="dark">
+    <header>
+        <nav aria-label="Main navigation">
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="bot-request.html" aria-current="page">Bot Request</a></li>
+                <li><a href="bot-guide.html">Bot Guide</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+    </header>
+    <main>
+        <section class="website-section bot-request scroll-reveal" aria-labelledby="bot-request-heading">
+            <h2 id="bot-request-heading">Request a Simple Discord Bot</h2>
+            <p>Want a cool bot for your Discord server? I’ll build you one for free! Choose from moderation tools, fun commands, or custom ideas—no fancy APIs, just stuff that runs on your server. Fill out this form, and in about 3 days, you’ll have a bot to enjoy with your community!</p>
+            
+            <form action="https://formspree.io/f/mdkedrbb" method="POST" class="bot-request-form">
+                <label for="bot-type">What Kind of Bot Do You Want?</label>
+                <select id="bot-type" name="bot-type" required>
+                    <option value="" disabled selected>Pick one</option>
+                    <option value="moderation">Moderation (e.g., ban, mute)</option>
+                    <option value="welcome">Welcome (e.g., greet members)</option>
+                    <option value="fun">Fun (e.g., 8ball, quotes)</option>
+                    <option value="custom">Custom (Tell me your idea!)</option>
+                </select>
+
+                <label for="features">Pick Your Features (Up to 5)</label>
+                <select id="features" name="features[]" multiple size="6" required>
+                    <option value="ban">Ban Users</option>
+                    <option value="mute">Mute Users</option>
+                    <option value="kick">Kick Users</option>
+                    <option value="warn">Warn Users</option>
+                    <option value="welcome">Welcome Message</option>
+                    <option value="goodbye">Goodbye Message</option>
+                    <option value="8ball">Magic 8-Ball</option>
+                    <option value="quote">Random Quote</option>
+                    <option value="topic">Chat Topic Starter</option>
+                    <option value="roll">Dice Roll</option>
+                    <option value="custom-command">Custom Command (Specify Below)</option>
+                </select>
+                <p class="form-hint">Hold Ctrl (or Cmd) to pick multiple. Max 5 to keep it quick!</p>
+
+                <label for="custom-details">Custom Command Details (if chosen)</label>
+                <textarea id="custom-details" name="custom-details" placeholder="e.g., '/hello - Says Hi back!' (Keep it simple if you want it soon!)"></textarea>
+
+                <label for="server-size">How Many Members in Your Server?</label>
+                <select id="server-size" name="server-size" required>
+                    <option value="" disabled selected>Select a range</option>
+                    <option value="1-50">1-50</option>
+                    <option value="51-200">51-200</option>
+                    <option value="201-500">201-500</option>
+                    <option value="500+">500+ (May need tweaks)</option>
+                </select>
+
+                <label for="deadline">When Do You Want It?</label>
+                <select id="deadline" name="deadline" required>
+                    <option value="" disabled selected>Choose a timeframe</option>
+                    <option value="3-days">Within 3 Days</option>
+                    <option value="1-week">Within 1 Week</option>
+                    <option value="2-weeks">Within 2 Weeks</option>
+                </select>
+
+                <label for="contact">How Can I Reach You?</label>
+                <input type="text" id="contact" name="contact" placeholder="e.g., User1234 (discord) or email@example.com" required>
+
+                <button type="submit" class="hero__cta">Send My Request</button>
+            </form>
+
+            <p class="follow-up-note">I’ll review your request and reply within 48 hours via Discord or email. Your bot will be ready in at least 3 days—perfect time to build some hype in your server! Check out the <a href="bot-guide.html">Bot Guide</a> to learn how to keep it running.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Lucas O. All rights reserved.</p>
+        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+    </footer>
+    <script src="static/main.js" type="module"></script>
+    <script src="static/bot-request.js"></script>
+</body>
+</html>

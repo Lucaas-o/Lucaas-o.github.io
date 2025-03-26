@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Lucas Orge</title>
+    <title>Contact - Lucas O.</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body data-theme="dark">
@@ -16,6 +16,7 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html" aria-current="page">Contact</a></li>
+                <li><a href="bot-request.html">Bot Request</a></li>
             </ul>
         </nav>
         <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
@@ -23,33 +24,41 @@
     <main>
         <section class="website-section contact scroll-reveal" aria-labelledby="contact-heading">
             <h2 id="contact-heading">Contact Me</h2>
+            <p>Want to chat? Fill out the form below, or reach me directly on Discord, GitHub, or email. I’d love to hear from you!</p>
+            
             <form action="https://formspree.io/f/xldjewpe" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="e.g., Alex" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="e.g., alex@example.com" required>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" placeholder="What’s on your mind?" required></textarea>
                 <button type="submit" class="hero__cta">Send Message</button>
             </form>
+
+            <h3>Connect With Me</h3>
             <div class="social-links">
-                <a href="https://github.com/Lucaas-o" target="_blank">
+                <div class="social-item">
+                    <img class="theme-logo discord-logo" src="media/Discord-Symbol-Light Blurple.png" alt="Discord Logo">
+                    <p>Discord: lucass.22 <span>(Add me as a friend in Discord!)</span></p>
+                </div>
+                <a href="https://github.com/Lucaas-o" target="_blank" class="social-item">
                     <img class="theme-logo github-logo" src="media/github-mark-white.png" alt="GitHub Logo">
+                    <p>GitHub: Lucaas-o</p>
                 </a>
-                <a href="https://x.com/lucass814368" target="_blank">
+                <a href="https://x.com/lucass814368" target="_blank" class="social-item">
                     <img class="theme-logo x-logo" src="media/logo-white.png" alt="X (Twitter) Logo">
+                    <p>X: @lucass814368</p>
+                </a>
+                <a href="mailto:lucas.orge.1@gmail.com" target="_blank" class="social-item">
+                    <img class="theme-logo email-logo" src="media/gmail.png" alt="Email Icon">
+                    <p>Email: lucas.orge.1@gmail.com</p>
                 </a>
             </div>
-            <h3>Connect With Me</h3>
-            <p>
-                <a href="https://github.com/Lucaas-o" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
-                <a href="https://linkedin.com/in/[YourLinkedIn]" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
-                <a href="mailto:your.email@example.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
-            </p>
         </section>
     </main>
     <footer>
-        <p>© 2025 Lucas Orge. All rights reserved.</p>
+        <p>© 2025 Lucas O. All rights reserved.</p>
         <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
     </footer>
     <script src="static/main.js" type="module"></script>
