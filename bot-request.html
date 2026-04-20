@@ -1,89 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot Request - Lucas O.</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>Request a Bot | Lucas O.</title>
+    
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="bot-request.html" aria-current="page">Bot Request</a></li>
+                <li><a href="bot-request.html" class="active">Bot Request</a></li>
                 <li><a href="bot-guide.html">Bot Guide</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
+            <button class="menu-trigger" aria-label="Open Mobile Menu">☰</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <section class="website-section bot-request scroll-reveal" aria-labelledby="bot-request-heading">
-            <h2 id="bot-request-heading">Request a Simple Discord Bot</h2>
-            <p>Want a cool bot for your Discord server? I’ll build you one for free! Choose from moderation tools, fun commands, or custom ideas—no fancy APIs, just stuff that runs on your server. Fill out this form, and in about 3 days, you’ll have a bot to enjoy with your community!</p>
-            
-            <form action="https://formspree.io/f/mdkedrbb" method="POST" class="bot-request-form">
-                <label for="bot-type">What Kind of Bot Do You Want?</label>
-                <select id="bot-type" name="bot-type" required>
-                    <option value="" disabled selected>Pick one</option>
-                    <option value="moderation">Moderation (e.g., ban, mute)</option>
-                    <option value="welcome">Welcome (e.g., greet members)</option>
-                    <option value="fun">Fun (e.g., 8ball, quotes)</option>
-                    <option value="custom">Custom (Tell me your idea!)</option>
-                </select>
 
-                <label for="features">Pick Your Features (Up to 5)</label>
-                <select id="features" name="features[]" multiple size="6" required>
-                    <option value="ban">Ban Users</option>
-                    <option value="mute">Mute Users</option>
-                    <option value="kick">Kick Users</option>
-                    <option value="warn">Warn Users</option>
-                    <option value="welcome">Welcome Message</option>
-                    <option value="goodbye">Goodbye Message</option>
-                    <option value="8ball">Magic 8-Ball</option>
-                    <option value="quote">Random Quote</option>
-                    <option value="topic">Chat Topic Starter</option>
-                    <option value="roll">Dice Roll</option>
-                    <option value="custom-command">Custom Command (Specify Below)</option>
-                </select>
-                <p class="form-hint">Hold Ctrl (or Cmd) to pick multiple. Max 5 to keep it quick!</p>
+    <main class="page-content">
+        <section class="website-section bot-request-premium">
+            <div class="container container-medium">
+                <div class="section-header reveal">
+                    <h1 class="shimmer-text">Custom Discord Architecture</h1>
+                    <p class="section-desc">Get a high-performance, personalized bot for your community—completely free.</p>
+                </div>
+                
+                <div class="bot-info-card glass-card reveal">
+                    <div class="info-icon"><i class="fas fa-robot"></i></div>
+                    <div class="info-text">
+                        <h3>Elevate Your Server</h3>
+                        <p>I build moderation tools, fun commands, and custom workflows that run seamlessly on your server. No complex APIs, just efficient code tailored to your needs. Expect your bot in about <strong>3 days</strong>.</p>
+                    </div>
+                </div>
 
-                <label for="custom-details">Custom Command Details (if chosen)</label>
-                <textarea id="custom-details" name="custom-details" placeholder="e.g., '/hello - Says Hi back!' (Keep it simple if you want it soon!)"></textarea>
+                <!-- Bot Request Form -->
+                <div class="glass-card premium-form-v2 reveal">
+                    <form action="https://formspree.io/f/mdkedrbb" method="POST" id="bot-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bot-type" class="static-label">Bot Type</label>
+                                <select id="bot-type" name="bot-type" required>
+                                    <option value="" disabled selected>Select Architecture</option>
+                                    <option value="moderation">Moderation (Guard/Admin)</option>
+                                    <option value="welcome">Welcome (Engagement)</option>
+                                    <option value="fun">Fun (Interactive Entertainment)</option>
+                                    <option value="custom">Custom (Bespoke Idea)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="deadline" class="static-label">Timeline</label>
+                                <select id="deadline" name="deadline" required>
+                                    <option value="" disabled selected>Expected Delivery</option>
+                                    <option value="3-days">Fast (Within 3 Days)</option>
+                                    <option value="1-week">Standard (1 Week)</option>
+                                    <option value="2-weeks">Deep Build (2 Weeks)</option>
+                                </select>
+                            </div>
+                        </div>
 
-                <label for="server-size">How Many Members in Your Server?</label>
-                <select id="server-size" name="server-size" required>
-                    <option value="" disabled selected>Select a range</option>
-                    <option value="1-50">1-50</option>
-                    <option value="51-200">51-200</option>
-                    <option value="201-500">201-500</option>
-                    <option value="500+">500+ (May need tweaks)</option>
-                </select>
+                        <div class="form-group">
+                            <label for="features" class="static-label">Core Features (Select Multiples)</label>
+                            <select id="features" name="features[]" multiple required class="multi-select">
+                                <option value="ban">Security: Ban/Unban</option>
+                                <option value="mute">Moderation: Mute/Timeout</option>
+                                <option value="kick">Moderation: Kick</option>
+                                <option value="warn">Moderation: Warnings System</option>
+                                <option value="welcome">Welcome: Greet Members</option>
+                                <option value="goodbye">Logs: Notification System</option>
+                                <option value="8ball">Game: Magic 8-Ball</option>
+                                <option value="quote">Utility: Random Inspiration</option>
+                                <option value="topic">Community: Ice Breakers</option>
+                                <option value="roll">Economy: Dice & Randoms</option>
+                                <option value="custom-command">Bespoke: Custom Logic</option>
+                            </select>
+                            <p class="form-hint">Tip: Hold <strong>Ctrl/Cmd</strong> to select up to 5 features.</p>
+                        </div>
 
-                <label for="deadline">When Do You Want It?</label>
-                <select id="deadline" name="deadline" required>
-                    <option value="" disabled selected>Choose a timeframe</option>
-                    <option value="3-days">Within 3 Days</option>
-                    <option value="1-week">Within 1 Week</option>
-                    <option value="2-weeks">Within 2 Weeks</option>
-                </select>
+                        <div class="form-group">
+                            <textarea id="custom-details" name="custom-details" placeholder=" "></textarea>
+                            <label for="custom-details">Idea / Detail specifics</label>
+                            <div class="form-line"></div>
+                        </div>
 
-                <label for="contact">How Can I Reach You?</label>
-                <input type="text" id="contact" name="contact" placeholder="e.g., User1234 (discord) or email@example.com" required>
+                        <div class="form-group">
+                            <input type="text" id="contact" name="contact" required placeholder=" ">
+                            <label for="contact">Your Discord Tag or Email</label>
+                            <div class="form-line"></div>
+                        </div>
 
-                <button type="submit" class="hero__cta">Send My Request</button>
-            </form>
-
-            <p class="follow-up-note">I’ll review your request and reply within 48 hours via Discord or email. Your bot will be ready in at least 3 days—perfect time to build some hype in your server! Check out the <a href="bot-guide.html">Bot Guide</a> to learn how to keep it running.</p>
+                        <button type="submit" class="btn-primary w-full">Deploy Request ⚡</button>
+                    </form>
+                </div>
+                
+                <p class="status-note reveal">
+                    Check out the <a href="bot-guide.html" class="accent-link">Bot Guide</a> to learn how to host your bot 24/7.
+                </p>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Lucaas-o" target="_blank">GitHub</a>
+                    <a href="https://x.com/lucass814368" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
     <script src="static/main.js" type="module"></script>
-    <script src="static/bot-request.js"></script>
+    
+    <style>
+        .page-content { padding-top: var(--spacing-xl); }
+        .bot-info-card {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            border-left: 4px solid var(--clr-accent-cyan);
+        }
+        .info-icon {
+            font-size: 3rem;
+            color: var(--clr-accent-pink);
+            background: rgba(var(--clr-accent-pink-rgb), 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+        .info-text h3 { margin-bottom: 0.5rem; }
+        .info-text p { opacity: 0.8; line-height: 1.5; }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .static-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--clr-accent-cyan);
+        }
+        select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text);
+            outline: none;
+            cursor: pointer;
+        }
+        select:focus { border-color: var(--clr-accent-cyan); }
+        .multi-select { height: 180px; }
+        .form-hint { font-size: 0.8rem; opacity: 0.5; margin-top: 0.5rem; }
+        
+        .accent-link { color: var(--clr-accent-pink); font-weight: 600; }
+        .status-note { margin-top: var(--spacing-md); text-align: center; opacity: 0.7; }
+        
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            .bot-info-card { flex-direction: column; text-align: center; }
+        }
+    </style>
 </body>
 </html>

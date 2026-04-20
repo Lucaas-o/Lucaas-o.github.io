@@ -1,46 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas O. - Software Developer</title>
-    <meta name="description" content="Portfolio of Lucas Orge, a 16-year-old software developer creating innovative projects.">
-    <meta property="og:title" content="Lucas Orge Portfolio">
+    <title>Lucas O. | Software Developer & Tech Enthusiast</title>
+    
+    <!-- SEO & Social Media -->
+    <meta name="description" content="Portfolio of Lucas Orge, a 16-year-old software developer crafting modern web experiences and innovative Discord bots. Discover my projects and my journey.">
+    <meta name="keywords" content="Lucas Orge, Software Developer, Portfolio, Discord Bot Developer, Web Developer, 16 year old coder">
+    <meta property="og:title" content="Lucas O. | Creative Software Developer">
+    <meta property="og:description" content="Designing the future of tech. Check out my latest projects and coding journey.">
     <meta property="og:image" content="media/profile.jpg">
-    <link rel="stylesheet" href="static/style.css">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Fonts & Styles -->
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    
+    <!-- External Libraries (CDNs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <!-- Premium Interactive Elements -->
+    <div class="mesh-bg"></div>
+    <div class="page-wipe"></div>
+
+    <!-- Navigation Overlay -->
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="bot-request.html">Bot Request</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
+            <button class="menu-trigger" aria-label="Open Mobile Menu">☰</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <section class="hero">
-        <img src="media/profile.jpg" alt="Lucas Orge" class="hero__image fade-in">
-        <h1 class="hero__title fade-in">Hey, I’m Lucas!</h1>
-        <p class="hero-subtitle">Coding the Future at 16</p>
-        <a href="/projects.html" class="hero__cta fade-in">Explore My Work</a>
-    </section>
+
     <main>
-        <section class="website-section featured-projects" aria-labelledby="featured-projects-heading">
-            <h2 id="featured-projects-heading">Featured Projects</h2>
-            <div class="projects-container"></div>
-            <p class="more-projects"><a href="projects.html">See All Projects</a></p>
+        <!-- Hero Section -->
+        <section class="hero-premium">
+            <div class="container container-hero">
+                <div class="hero-content reveal">
+                    <div class="profile-frame float-anim">
+                        <img src="media/profile.jpg" alt="Lucas Orge" class="hero-profile-img">
+                    </div>
+                    <h1 class="hero-title">
+                        Building the <span class="shimmer-text">Future</span> <br>
+                        at Sweet Sixteen.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Hi, I'm <span class="text-accent">Lucas</span>. A software developer passionate about clean code, 
+                        modern UI, and building innovative digital solutions.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="projects.html" class="btn-primary">Explore My Work</a>
+                        <a href="contact.html" class="btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-down">
+                <div class="mouse"></div>
+                <p>Scroll</p>
+            </div>
+        </section>
+
+        <!-- Featured Projects Preview -->
+        <section class="website-section featured-preview">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Selected Projects</h2>
+                    <p class="section-desc">A glimpse of what I've been working on lately.</p>
+                </div>
+                
+                <div class="projects-grid" id="featured-projects">
+                    <!-- Injected via JavaScript for Phase 3 -->
+                </div>
+                
+                <div class="view-all-container reveal">
+                    <a href="projects.html" class="link-arrow">View All Projects <span>→</span></a>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Lucaas-o" target="_blank">GitHub</a>
+                    <a href="https://x.com/lucass814368" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="static/main.js" type="module"></script>
+    
+    <!-- Inline styles for specific hero layout before full implementation if needed -->
+    <style>
+        .hero-premium {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: var(--spacing-xl) var(--spacing-md);
+            text-align: center;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+        }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+            opacity: 0.9;
+        }
+        .profile-frame {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto var(--spacing-md);
+            border-radius: 50%;
+            padding: 5px;
+            background: var(--grad-primary);
+            position: relative;
+        }
+        .hero-profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg);
+        }
+        .text-accent {
+            color: var(--clr-accent-cyan);
+            font-weight: 700;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-secondary {
+            padding: 0.8rem 2rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(5px);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--clr-accent-cyan);
+        }
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.6;
+        }
+        .mouse {
+            width: 25px;
+            height: 40px;
+            border: 2px solid var(--text);
+            border-radius: 20px;
+            margin: 0 auto 10px;
+            position: relative;
+        }
+        .mouse::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            width: 4px;
+            height: 8px;
+            background: var(--clr-accent-pink);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            animation: scroll-anim 2s infinite;
+        }
+        @keyframes scroll-anim {
+            0% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, 20px); }
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: var(--spacing-lg);
+        }
+        .view-all-container {
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        .link-arrow {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--clr-accent-cyan);
+        }
+        .link-arrow span {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .link-arrow:hover span {
+            transform: translateX(8px);
+        }
+        .footer-bottom {
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        @media (max-width: 480px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
 </body>
 </html>

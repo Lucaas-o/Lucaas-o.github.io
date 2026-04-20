@@ -1,66 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Lucas O.</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>Contact Me | Lucas O.</title>
+    
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html" aria-current="page">Contact</a></li>
-                <li><a href="bot-request.html">Bot Request</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
+            <button class="menu-trigger" aria-label="Open Mobile Menu">☰</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <section class="website-section contact scroll-reveal" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Contact Me</h2>
-            <p>Want to chat? Fill out the form below, or reach me directly on Discord, GitHub, or email. I’d love to hear from you!</p>
-            
-            <form action="https://formspree.io/f/xldjewpe" method="POST">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" placeholder="e.g., Alex" required>
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" placeholder="e.g., alex@example.com" required>
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" placeholder="What’s on your mind?" required></textarea>
-                <button type="submit" class="hero__cta">Send Message</button>
-            </form>
 
-            <h3>Connect With Me</h3>
-            <div class="social-links">
-                <div class="social-item">
-                    <img class="theme-logo discord-logo" src="media/Discord-Symbol-Light Blurple.png" alt="Discord Logo">
-                    <p>Discord: lucass.22 <span>(Add me as a friend in Discord!)</span></p>
+    <main class="page-content">
+        <section class="website-section contact-hero">
+            <div class="container container-medium">
+                <div class="section-header reveal">
+                    <h1 class="shimmer-text">Let's Connect</h1>
+                    <p class="section-desc">Have a question, a project idea, or just want to chat? I'm all ears.</p>
                 </div>
-                <a href="https://github.com/Lucaas-o" target="_blank" class="social-item">
-                    <img class="theme-logo github-logo" src="media/github-mark-white.png" alt="GitHub Logo">
-                    <p>GitHub: Lucaas-o</p>
-                </a>
-                <a href="https://x.com/lucass814368" target="_blank" class="social-item">
-                    <img class="theme-logo x-logo" src="media/logo-white.png" alt="X (Twitter) Logo">
-                    <p>X: @lucass814368</p>
-                </a>
-                <a href="mailto:lucas.orge.1@gmail.com" target="_blank" class="social-item">
-                    <img class="theme-logo email-logo" src="media/gmail.png" alt="Email Icon">
-                    <p>Email: lucas.orge.1@gmail.com</p>
-                </a>
+                
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-side reveal">
+                        <div class="glass-card premium-form-v2">
+                            <form action="https://formspree.io/f/xldjewpe" method="POST" id="contact-form">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" required placeholder=" ">
+                                    <label for="name">Your Name</label>
+                                    <div class="form-line"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" required placeholder=" ">
+                                    <label for="email">Your Email</label>
+                                    <div class="form-line"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <textarea id="message" name="message" required placeholder=" "></textarea>
+                                    <label for="message">Your Message</label>
+                                    <div class="form-line"></div>
+                                </div>
+                                
+                                <button type="submit" class="btn-primary w-full">Send Message 🚀</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-side reveal">
+                        <div class="glass-card social-card-v2">
+                            <h3>Find me on</h3>
+                            <div class="social-list-v2">
+                                <a href="https://github.com/Lucaas-o" target="_blank" class="social-link-v2">
+                                    <div class="social-icon-box"><img src="media/github-mark-white.png" data-dark="media/github-mark-white.png" data-light="media/github-mark.png" alt="GitHub" class="theme-aware-logo"></div>
+                                    <div class="social-info">
+                                        <h4>GitHub</h4>
+                                        <span>@Lucaas-o</span>
+                                    </div>
+                                </a>
+                                <a href="https://x.com/lucass814368" target="_blank" class="social-link-v2">
+                                    <div class="social-icon-box"><img src="media/logo-white.png" data-dark="media/logo-white.png" data-light="media/logo-black.png" alt="X" class="theme-aware-logo"></div>
+                                    <div class="social-info">
+                                        <h4>Twitter / X</h4>
+                                        <span>@lucass814368</span>
+                                    </div>
+                                </a>
+                                <a href="mailto:lucas.orge.1@gmail.com" class="social-link-v2">
+                                    <div class="social-icon-box"><img src="media/gmail.png" alt="Email"></div>
+                                    <div class="social-info">
+                                        <h4>Email</h4>
+                                        <span>lucas.orge.1@gmail.com</span>
+                                    </div>
+                                </a>
+                                <div class="social-link-v2 no-hover">
+                                    <div class="social-icon-box"><img src="media/Discord-Symbol-Light Blurple.png" data-dark="media/Discord-Symbol-Light Blurple.png" data-light="media/Discord-Symbol-Black.png" alt="Discord" class="theme-aware-logo"></div>
+                                    <div class="social-info">
+                                        <h4>Discord</h4>
+                                        <span>lucass.22 (Add me as a friend in Discord!)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Lucaas-o" target="_blank">GitHub</a>
+                    <a href="https://x.com/lucass814368" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
     <script src="static/main.js" type="module"></script>
+    
+    <style>
+        .page-content { padding-top: var(--spacing-xl); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 2.5rem;
+            margin-top: var(--spacing-lg);
+        }
+        
+        /* Premium Form V2 */
+        .premium-form-v2 { padding: 2.5rem; }
+        .form-group {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 0.8rem 0;
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+        }
+        .form-group label {
+            position: absolute;
+            top: 0.8rem;
+            left: 0;
+            transition: var(--transition-smooth);
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .form-line {
+            width: 100%;
+            height: 1px;
+            background: var(--glass-border);
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+        .form-line::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--grad-primary);
+            transition: var(--transition-smooth);
+        }
+        
+        /* Label Floating */
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -1.2rem;
+            font-size: 0.85rem;
+            color: var(--clr-accent-cyan);
+            opacity: 1;
+        }
+        .form-group input:focus ~ .form-line::after,
+        .form-group textarea:focus ~ .form-line::after {
+            width: 100%;
+        }
+        
+        .form-group textarea { min-height: 120px; resize: none; }
+        .w-full { width: 100%; margin-top: 1rem; }
+        
+        /* Social V2 */
+        .social-card-v2 { padding: 2rem; }
+        .social-card-v2 h3 { margin-bottom: 2rem; font-size: 1.25rem; }
+        .social-list-v2 { display: flex; flex-direction: column; gap: 1.5rem; }
+        .social-link-v2 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid transparent;
+            transition: var(--transition-smooth);
+        }
+        .social-link-v2:not(.no-hover):hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--clr-accent-cyan);
+            transform: translateX(10px);
+        }
+        .social-icon-box {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border-radius: 12px;
+        }
+        .social-icon-box img { width: 24px; }
+        .social-info h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+        .social-info span { font-size: 0.8rem; opacity: 0.6; }
+        
+        @media (max-width: 850px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </body>
 </html>

@@ -1,54 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Lucas O.</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>Projects | Lucas O.</title>
+    
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="bot-request.html">Bot Request</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
+            <button class="menu-trigger" aria-label="Open Mobile Menu">☰</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <section class="website-section projects-section" aria-labelledby="projects-heading">
-            <h2 id="projects-heading">My Projects</h2>
-            <div class="projects-container">
-                <!-- Added via JavaScript -->
+
+    <main class="page-content">
+        <section class="website-section projects-hero">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h1 class="shimmer-text">Portfolio of Work</h1>
+                    <p class="section-desc">From web apps to automation scripts, explore my technical playground.</p>
+                </div>
+                
+                <!-- Filter Controls -->
+                <div class="filter-controls reveal">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="python">Python / Scripts</button>
+                    <button class="filter-btn" data-filter="discord">Discord Bots</button>
+                </div>
+                
+                <div class="projects-grid-main" id="projects-container">
+                    <!-- Dynamic project cards will be injected here via main.js -->
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
-    </footer>
-    <script src="static/main.js" type="module"></script>
-    <script>
-        // Project filtering
-        const filterButtons = document.querySelectorAll(".filter-btn");
-        const projects = document.querySelectorAll(".project");
 
-        filterButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                filterButtons.forEach(btn => btn.classList.remove("active"));
-                button.classList.add("active");
-                const filter = button.dataset.filter;
-                projects.forEach(project => {
-                    project.style.display = (filter === "all" || project.dataset.category === filter) ? "block" : "none";
-                });
-            });
-        });
-    </script>
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Lucaas-o" target="_blank">GitHub</a>
+                    <a href="https://x.com/lucass814368" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/main.js" type="module"></script>
+    
+    <style>
+        .page-content { padding-top: var(--spacing-xl); }
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: var(--spacing-lg) 0;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--grad-primary);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(var(--clr-accent-pink-rgb), 0.3);
+            transform: translateY(-2px);
+        }
+        .projects-grid-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: var(--spacing-lg);
+        }
+        @media (max-width: 480px) {
+            .projects-grid-main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </body>
 </html>

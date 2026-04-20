@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap');
+
+:root {
+    /* Color Palette */
+    --clr-bg-dark: #0a0a0a;
+    --clr-bg-light: #f8f9fa;
+    --clr-accent-pink: #ff2a9d;
+    --clr-accent-cyan: #00f7ff;
+    --clr-accent-pink-rgb: 255, 42, 157;
+    --clr-accent-cyan-rgb: 0, 247, 255;
+    
+    /* Glassmorphism Dark */
+    --glass-bg-dark: rgba(255, 255, 255, 0.08);
+    --glass-border-dark: rgba(255, 255, 255, 0.15);
+    
+    /* Glassmorphism Light */
+    --glass-bg-light: rgba(0, 0, 0, 0.04);
+    --glass-border-light: rgba(0, 0, 0, 0.1);
+    
+    /* Gradients */
+    --grad-primary: linear-gradient(135deg, var(--clr-accent-pink), var(--clr-accent-cyan));
+    --grad-primary-hover: linear-gradient(135deg, var(--clr-accent-cyan), var(--clr-accent-pink));
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    
+    /* Transitions */
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.2s ease;
+}
+
+[data-theme="dark"] {
+    --bg: var(--clr-bg-dark);
+    --text: #ffffff;
+    --text-sec: rgba(255, 255, 255, 0.7);
+    --glass-bg: var(--glass-bg-dark);
+    --glass-border: var(--glass-border-dark);
+    --accent: var(--clr-accent-pink);
+    --accent-rgb: var(--clr-accent-pink-rgb);
+}
+
+[data-theme="light"] {
+    --bg: var(--clr-bg-light);
+    --text: #1a1a1a;
+    --text-sec: rgba(0, 0, 0, 0.6);
+    --glass-bg: var(--glass-bg-light);
+    --glass-border: var(--glass-border-light);
+    --accent: #ff2a9d; /* Less intense in light mode by context usually means softer glow */
+    --accent-rgb: var(--clr-accent-pink-rgb);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color var(--transition-smooth);
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Custom Selection */
+::selection {
+    background: rgba(var(--clr-accent-cyan-rgb), 0.3);
+    color: var(--text);
+}

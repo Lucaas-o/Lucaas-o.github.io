@@ -1,35 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>404 | Lost in the Matrix</title>
+    
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+
     <header>
-      <nav aria-label="Main navigation">
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-        <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <section class="website-section error-404" aria-labelledby="error-heading">
-            <h2 id="error-heading">404 - Page Not Found</h2>
-            <p>Oops! It looks like you’re lost in code. Let’s get you back on track.</p>
-            <a href="index.html" class="hero__cta">Return to Home</a>
+
+    <main class="error-page">
+        <section class="website-section">
+            <div class="container text-center reveal">
+                <h1 class="glitch-text">404</h1>
+                <h2 class="shimmer-text">Lost in the Matrix</h2>
+                <p class="section-desc">Oops! It looks like you’re lost in code. Let’s get you back on track.</p>
+                <div class="error-actions">
+                    <a href="index.html" class="btn-primary">Back to Reality</a>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas Orge. All rights reserved.</p>
-    </footer>
+
     <script src="static/main.js" type="module"></script>
+    
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .glitch-text {
+            font-size: clamp(5rem, 15vw, 10rem);
+            line-height: 1;
+            margin-bottom: 1rem;
+            color: var(--clr-accent-pink);
+            text-shadow: 4px 4px var(--clr-accent-cyan);
+        }
+        .error-actions {
+            margin-top: var(--spacing-lg);
+        }
+        .text-center { text-align: center; }
+    </style>
 </body>
 </html>

@@ -1,41 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Post Title] - Lucas Orge</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <title>Python for Beginners | Lucas O.</title>
+    
+    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="../static/components.css">
+    <link rel="stylesheet" href="../static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+    <div class="page-wipe"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../about.html">About</a></li>
                 <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <article class="website-section blog-post scroll-reveal" aria-labelledby="post-heading">
-            <h2 id="post-heading">[Getting Started with Python for Beginners]</h2>
-            <time datetime="[2024-07-31]">[July 31, 2024]</time>
-            <img src="../media/blog-post-image.jpg" alt="[A guide to setting up Python and writing your first script.]" class="blog-post__image">
-            <div class="blog-post__content">
-                <p>[This is a placeholder for the main text.]</p>
-                <!-- Add more paragraphs or sections as needed -->
+
+    <main class="page-content">
+        <article class="article-premium">
+            <div class="container container-thin">
+                <div class="article-header reveal">
+                    <a href="../blog.html" class="back-link">← Back to Blog</a>
+                    <time datetime="2024-07-31">July 31, 2024</time>
+                    <h1 class="shimmer-text">Python for Beginners</h1>
+                    <div class="category-tag">TUTORIALS</div>
+                </div>
+
+                <div class="article-hero reveal">
+                    <div class="glass-card image-card-v2">
+                        <img src="../media/blog-post2.jpg" alt="Python logo on a modern workspace" class="article-main-img">
+                    </div>
+                </div>
+
+                <div class="article-body reveal">
+                    <p class="lead">Python is often called a "human-readable" language. It's the perfect starting point for anyone looking to enter the world of programming. In this guide, I'll show you why Python is amazing and how to write your very first script.</p>
+
+                    <h3>Why Python?</h3>
+                    <p>Python's syntax is clean and intuitive. It's used in everything from web development (Django/Flask) to Artificial Intelligence and Data Science. As a beginner, it allows you to focus on logic rather than fighting complex syntax.</p>
+                    
+                    <ul class="premium-list">
+                        <li><strong>Readability:</strong> Code looks like English.</li>
+                        <li><strong>Versatility:</strong> Build apps, automate tasks, or analyze data.</li>
+                        <li><strong>Community:</strong> Hundreds of thousands of libraries ready to use.</li>
+                    </ul>
+
+                    <h3>The "Hello World" Moment</h3>
+                    <p>Every journey starts somewhere. In Python, your first step is simpler than in almost any other language. Once you have Python installed, create a file named <code>app.py</code> and type:</p>
+
+                    <div class="code-block-v2 reveal">
+                        <div class="code-header"><span>python</span><button class="copy-btn">Copy</button></div>
+                        <code>print("Hello, World!")<br>print("I am coding the future.")</code>
+                    </div>
+
+                    <p>To run it, just open your terminal and type <code>python app.py</code>. That's it! You've officially entered the world of programming.</p>
+
+                    <h3>Basic Concepts</h3>
+                    <p>As you progress, you'll encounter these fundamental building blocks:</p>
+                    <div class="step-card-mini glass-card">
+                        <h4>Variables</h4>
+                        <p>Storage containers for data. Example: <code>name = "Lucas"</code></p>
+                    </div>
+                    <div class="step-card-mini glass-card">
+                        <h4>Functions</h4>
+                        <p>Reusable blocks of code. Example: <code>def greet(): print("Hi!")</code></p>
+                    </div>
+
+                    <h3>Conclusion</h3>
+                    <p>Python is more than just a language; it's a tool that empowers you to build anything you can imagine. Stay curious, keep practicing, and don't be afraid to break things—that's how you learn best!</p>
+                </div>
+
+                <div class="article-footer reveal">
+                    <a href="../blog.html" class="btn-secondary">Back to Stories</a>
+                </div>
             </div>
-            <a href="../blog.html" class="hero__cta">Back to Blog</a>
         </article>
     </main>
-    <footer>
-        <p>© 2025 Lucas Orge. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+            </div>
+        </div>
     </footer>
+
     <script src="../static/main.js" type="module"></script>
+    
+    <style>
+        /* Sharing styles with post1 for consistency */
+        .page-content { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+        .container-thin { max-width: 800px; }
+        .article-header { margin-bottom: var(--spacing-lg); text-align: center; }
+        .back-link { display: block; margin-bottom: 2rem; color: var(--clr-accent-cyan); font-weight: 600; font-size: 0.9rem; }
+        .article-header time { font-size: 0.9rem; opacity: 0.6; margin-bottom: 1rem; display: block; }
+        .category-tag { display: inline-block; padding: 0.4rem 1rem; background: rgba(var(--clr-accent-cyan-rgb), 0.1); color: var(--clr-accent-cyan); border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; margin-top: 1rem; }
+        
+        .article-hero { margin-bottom: var(--spacing-lg); }
+        .image-card-v2 { padding: 15px; }
+        .article-main-img { width: 100%; border-radius: 12px; }
+        
+        .article-body { font-size: 1.1rem; line-height: 1.8; color: var(--text-sec); }
+        .lead { font-size: 1.25rem; color: var(--text); margin-bottom: 2.5rem; font-weight: 500; }
+        .article-body h3 { color: var(--text); margin: 3rem 0 1.5rem; font-size: 1.75rem; }
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        .premium-list { list-style: none; margin-bottom: 2.5rem; }
+        .premium-list li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .premium-list li::before { content: '→'; position: absolute; left: 0; color: var(--clr-accent-pink); }
+        
+        .code-block-v2 { background: #000; border-radius: 12px; padding: 0; margin: 2rem 0; border: 1px solid var(--glass-border); overflow: hidden; }
+        .code-header { background: rgba(255,255,255,0.05); padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid var(--glass-border); }
+        .code-block-v2 code { display: block; padding: 1.5rem; color: var(--clr-accent-cyan); font-family: 'Courier New', monospace; line-height: 1.6; }
+        
+        .step-card-mini { padding: 1.5rem; margin-bottom: 1.5rem; }
+        .step-card-mini h4 { color: var(--clr-accent-cyan); margin-bottom: 0.5rem; }
+        
+        .article-footer { margin-top: 5rem; text-align: center; padding-top: 3rem; border-top: 1px solid var(--glass-border); }
+    </style>
 </body>
 </html>

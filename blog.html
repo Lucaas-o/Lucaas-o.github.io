@@ -1,61 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Lucas O.</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>Blog | Lucas O.</title>
+    
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="bot-request.html">Bot Request</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
+            <button class="menu-trigger" aria-label="Open Mobile Menu">☰</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <section class="website-section blog scroll-reveal" aria-labelledby="blog-heading">
-            <h2 id="blog-heading">Blog Posts</h2>
-            <div class="blog-posts">
-                <article class="blog-post">
-                    <img src="media/blog-post1.jpg" alt="My first Website Project" class="blog-post__image">
-                    <div class="blog-post__content">
-                        <h3><a href="blog/post1.html">My First Website Project!</a></h3>
-                        <p>A tour inside my first HTML, CSS, and JS project.</p>
-                        <time datetime="2023-11-19">November 19, 2023</time>
-                    </div>
-                </article>
-                <article class="blog-post">
-                    <img src="media/blog-post2.jpg" alt="Getting Started with Python for Beginners" class="blog-post__image">
-                    <div class="blog-post__content">
-                        <h3><a href="blog/post2.html">Getting Started with Python for Beginners</a></h3>
-                        <p>A guide to setting up Python and writing your first script.</p>
-                        <time datetime="2024-07-31">July 31, 2024</time>
-                    </div>
-                </article>
-                <article class="blog-post">
-                    <img src="media/blog-post3.jpg" alt="How I Built My Pomodoro App" class="blog-post__image">
-                    <div class="blog-post__content">
-                        <h3><a href="blog/post3.html">How I Built My Pomodoro App</a></h3>
-                        <p>Learn about the challenges and solutions in creating a Pomodoro timer with JavaScript.</p>
-                        <time datetime="2024-12-31">December 31, 2024</time>
-                    </div>
-                </article>
+
+    <main class="page-content">
+        <section class="website-section blog-hero">
+            <div class="container container-medium">
+                <div class="section-header reveal">
+                    <h1 class="shimmer-text">Insights & Stories</h1>
+                    <p class="section-desc">Writing about code, challenges, and the developer lifestyle.</p>
+                </div>
+                
+                <div class="blog-grid-v2">
+                    <article class="blog-card-v2 reveal">
+                        <div class="blog-img-wrapper">
+                            <img src="media/blog-post1.jpg" alt="My first Website Project" class="blog-img">
+                            <div class="blog-category">Web Dev</div>
+                        </div>
+                        <div class="blog-content-v2">
+                            <time datetime="2023-11-19">Nov 19, 2023</time>
+                            <h3>My First Website Project!</h3>
+                            <p>A deep dive into the code and logic behind my very first HTML/CSS/JS project.</p>
+                            <a href="blog/post1.html" class="blog-link">Read Story <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card-v2 reveal">
+                        <div class="blog-img-wrapper">
+                            <img src="media/blog-post2.jpg" alt="Python for Beginners" class="blog-img">
+                            <div class="blog-category">Python</div>
+                        </div>
+                        <div class="blog-content-v2">
+                            <time datetime="2024-07-31">Jul 31, 2024</time>
+                            <h3>Python for Beginners</h3>
+                            <p>Everything you need to know to get started with Python, from setup to first script.</p>
+                            <a href="blog/post2.html" class="blog-link">Read Story <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card-v2 reveal">
+                        <div class="blog-img-wrapper">
+                            <img src="media/blog-post3.jpg" alt="Building Pomodoro" class="blog-img">
+                            <div class="blog-category">Case Study</div>
+                        </div>
+                        <div class="blog-content-v2">
+                            <time datetime="2024-12-31">Dec 31, 2024</time>
+                            <h3>Building My Pomodoro App</h3>
+                            <p>The challenges of building a full-featured productivity app with pure JavaScript.</p>
+                            <a href="blog/post3.html" class="blog-link">Read Story <span>→</span></a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Lucaas-o" target="_blank">GitHub</a>
+                    <a href="https://x.com/lucass814368" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
     <script src="static/main.js" type="module"></script>
+    
+    <style>
+        .page-content { padding-top: var(--spacing-xl); }
+        .blog-grid-v2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: var(--spacing-lg);
+        }
+        .blog-card-v2 {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+        .blog-card-v2:hover {
+            transform: translateY(-8px);
+            border-color: var(--clr-accent-pink);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .blog-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .blog-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .blog-card-v2:hover .blog-img {
+            transform: scale(1.1);
+        }
+        .blog-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 0.4rem 1rem;
+            background: var(--grad-primary);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .blog-content-v2 {
+            padding: 1.5rem;
+        }
+        .blog-content-v2 time {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .blog-content-v2 h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        .blog-content-v2 p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .blog-link {
+            font-weight: 600;
+            color: var(--clr-accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .blog-link span {
+            transition: transform 0.3s ease;
+        }
+        .blog-link:hover span {
+            transform: translateX(5px);
+        }
+    </style>
 </body>
 </html>

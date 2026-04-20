@@ -1,78 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Lucas O.</title>
-    <link rel="stylesheet" href="static/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>About Me | Lucas O.</title>
+    
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="active">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="bot-request.html">Bot Request</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
+            <button class="menu-trigger" aria-label="Open Mobile Menu">☰</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <section class="website-section about scroll-reveal" aria-labelledby="about-heading">
-            <h2 id="about-heading">About Me</h2>
-            <img src="media/profile.jpg" alt="Lucas Orge, a young developer smiling" class="hero__image">
-            <p>I'm a 16-year-old software developer passionate about coding, music, and creating things that make life easier. I love experimenting with new technologies and sharing my journey with others.</p>
 
-            <h3>My Journey</h3>
-            <ul class="timeline">
-                <li><h4>2020: First Encounter</h4><p>Tinkered with Scratch and discovered my love for programming.</p></li>
-                <li><h4>2022: Web Development</h4><p>Began with HTML and CSS, building simple static websites.</p></li>
-                <li><h4>2023: JavaScript</h4><p>Added interactivity with JavaScript, creating apps.</p></li>
-                <li><h4>2023: First Project</h4><p>Made my first High School website project, with HTML, CSS and JS.
-                    <br>It was actually decent!</p></li>
-                <li><h4>2024: Python</h4><p>Learned Python for backend and automation.</p></li>
-                <li><h4>2024: Pomodoro Timer</h4><p>Created a feature-rich Pomodoro Timer web app.</p></li>
-                <li><h4>2024: Git/GitHub</h4><p>Mastered version control and open-source contribution.</p></li>
-                <li><h4>2025: Improvements</h4><p>Began updating older projects and ideas to maximize their potential.</p></li>
-            </ul>
-
-            <h3>Skills</h3>
-            <div class="skills">
-                <h4>Languages</h4>
-                <p><i class="fab fa-html5"></i> HTML: <progress value="80" max="100"></progress></p>
-                <p><i class="fab fa-css3-alt"></i> CSS: <progress value="65" max="100"></progress></p>
-                <p><i class="fab fa-js"></i> JavaScript: <progress value="55" max="100"></progress></p>
-                <p><i class="fab fa-python"></i> Python: <progress value="65" max="100"></progress></p>
-                <h4>Tools</h4>
-                <p><i class="fab fa-git-alt"></i> Git: <progress value="65" max="100"></progress></p>
-                <p><i class="fas fa-code"></i> VS Code: <progress value="85" max="100"></progress></p>
+    <main class="page-content">
+        <section class="website-section about-hero">
+            <div class="container container-narrow">
+                <div class="section-header reveal">
+                    <h1 class="shimmer-text">The Story Behind the Code</h1>
+                    <p class="section-desc">Get to know the developer, the music lover, and the builder.</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-image-side reveal">
+                        <div class="glass-image-wrapper float-anim">
+                            <img src="media/profile.jpg" alt="Lucas Orge" class="about-profile-img">
+                        </div>
+                    </div>
+                    <div class="about-text-side reveal">
+                        <div class="glass-card">
+                            <p>I'm a 16-year-old software developer from Spain, currently studying at 'Lycée Français de Valence'. My journey in tech is driven by an insatiable curiosity for how things work and a passion for creating tools that solve real-world problems.</p>
+                            <p>Beyond coding, I'm deeply into music—it's the fuel for my late-night dev sessions. I'm constantly exploring new genres and artists, just as I explore new frameworks and languages.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <h3>Education</h3>
-            <ul>
-                <li>High School Student at 'Lycée Français de Valence', expected 2026.</li>
-                <li>"Curso de HTML y CSS desde CERO (Completo)" - SoyDalto (YouTube).</li>
-                <li>"Curso de PYTHON desde CERO (Completo)" - SoyDalto (YouTube).</li>
-                <li>"NSI Espécialité 1ère" - High School.</li>
-            </ul>
+        <!-- Timeline Section -->
+        <section class="website-section timeline-section">
+            <div class="container container-medium">
+                <h2 class="section-title reveal">My Journey</h2>
+                <div class="timeline-v2">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2020: First Encounter</h3>
+                            <p>Tinkered with Scratch and discovered my love for programming. The spark was lit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2022: Web Foundations</h3>
+                            <p>Started mastering HTML and CSS. Built my first static sites (and they weren't pretty, but they worked!).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2023: JavaScript</h3>
+                            <p>Deep-dived into JavaScript. Added interactivity to my projects and made them come alive.</p>
+                        </div>
+                    </div>
 
-            <h3>Interests</h3>
-            <ul>
-                <li><i class="fas fa-music"></i> Listenning and discovering music, artists and genres.</li>
-                <li><i class="fa-solid fa-gears"></i> Constantly finding and learning new technologies.</li>
-                <li><i class="fa-solid fa-code-fork"></i> Resolving new challenges and developing innovative solutions through problem-solving projects.</li>
-            </ul>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2023: First Project</h3>
+                            <p>Made my first High School website project with HTML, CSS, and JS. It was actually decent!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2024: Python</h3>
+                            <p>Learned Python for backend development and automation, opening a new world of possibilities.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2024: Pomodoro Timer</h3>
+                            <p>Developed a feature-rich Pomodoro Timer web app to boost productivity.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2024: Git/GitHub</h3>
+                            <p>Mastered version control and open-source contribution to collaborate better.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>2025: Improvements</h3>
+                            <p>Focusing on refining older projects with modern best practices and maximizing their potential.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="website-section skills-section">
+            <div class="container container-medium">
+                <h2 class="section-title reveal">Skill Matrix</h2>
+                <div class="skills-grid reveal">
+                    <div class="skill-category glass-card">
+                        <h3><i class="fas fa-laptop-code"></i> Development</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">HTML / CSS</span>
+                            <div class="progress-bar-v2"><div class="progress-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="progress-bar-v2"><div class="progress-fill" style="width: 70%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="progress-bar-v2"><div class="progress-fill" style="width: 75%;"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-card">
+                        <h3><i class="fas fa-tools"></i> Tools & Tech</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">Git / GitHub</span>
+                            <div class="progress-bar-v2"><div class="progress-fill" style="width: 80%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">VS Code</span>
+                            <div class="progress-bar-v2"><div class="progress-fill" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">GSAP Animations</span>
+                            <div class="progress-bar-v2"><div class="progress-fill" style="width: 65%;"></div></div>
+                        </div>
+                    </div>
+        <!-- Education & Interests -->
+        <section class="website-section extra-info">
+            <div class="container container-medium reveal">
+                <div class="info-split">
+                    <div class="education-block glass-card">
+                        <h3><i class="fas fa-user-graduate"></i> Education</h3>
+                        <ul class="premium-list">
+                            <li>High School Student at 'Lycée Français de Valence', expected 2026.</li>
+                            <li>"Curso de HTML y CSS desde CERO (Completo)" - SoyDalto.</li>
+                            <li>"Curso de PYTHON desde CERO (Completo)" - SoyDalto.</li>
+                            <li>"NSI Spécialité 1ère" - High School curriculum.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interests-block glass-card">
+                        <h3><i class="fas fa-heart"></i> Interests</h3>
+                        <ul class="premium-list">
+                            <li><i class="fas fa-music"></i> Discovering new artists and genres.</li>
+                            <li><i class="fas fa-microchip"></i> Constant learning of new technologies.</li>
+                            <li><i class="fas fa-puzzle-piece"></i> Solving challenges through code.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Lucaas-o" target="_blank">GitHub</a>
+                    <a href="https://x.com/lucass814368" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
     <script src="static/main.js" type="module"></script>
+    
+    <style>
+        .page-content { padding-top: var(--spacing-xl); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            margin-top: var(--spacing-lg);
+        }
+        .glass-image-wrapper {
+            padding: 10px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        .about-profile-img {
+            width: 100%;
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        .about-profile-img:hover { transform: scale(1.02); }
+        
+        /* Timeline V2 */
+        .timeline-v2 {
+            position: relative;
+            max-width: 800px;
+            margin: var(--spacing-lg) auto 0;
+            padding-left: 50px;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--grad-primary);
+        }
+        .timeline-item {
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -39px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--clr-accent-cyan);
+            border: 4px solid var(--bg);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--clr-accent-cyan);
+        }
+        .timeline-content h3 { color: var(--clr-accent-pink); margin-bottom: 0.5rem; }
+        
+        /* Skills V2 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: var(--spacing-lg);
+        }
+        .skill-category h3 { margin-bottom: var(--spacing-md); color: var(--clr-accent-cyan); }
+        .skill-item { margin-bottom: 1.5rem; }
+        .skill-name { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .progress-bar-v2 {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--grad-primary);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(var(--clr-accent-pink-rgb), 0.5);
+        }
+
+        .info-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .extra-info { padding-bottom: var(--spacing-xl); }
+        
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .timeline-v2 { padding-left: 30px; }
+            .timeline-line { left: 10px; }
+            .timeline-dot { left: -29px; }
+            .info-split { grid-template-columns: 1fr; }
+        }
+    </style>
 </body>
 </html>

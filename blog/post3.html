@@ -1,41 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Post Title] - Lucas Orge</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <title>Building the Pomodoro App | Lucas O.</title>
+    
+    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="../static/components.css">
+    <link rel="stylesheet" href="../static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+    <div class="page-wipe"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../about.html">About</a></li>
                 <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <article class="website-section blog-post scroll-reveal" aria-labelledby="post-heading">
-            <h2 id="post-heading">[How I Built My Pomodoro App]</h2>
-            <time datetime="[2024-12-31]">[December 31, 2024]</time>
-            <img src="../media/blog-post-image.jpg" alt="[Learn about the challenges and solutions in creating a Pomodoro timer with JavaScript.]" class="blog-post__image">
-            <div class="blog-post__content">
-                <p>[This is a placeholder for the main text.]</p>
-                <!-- Add more paragraphs or sections as needed -->
+
+    <main class="page-content">
+        <article class="article-premium">
+            <div class="container container-thin">
+                <div class="article-header reveal">
+                    <a href="../blog.html" class="back-link">← Back to Blog</a>
+                    <time datetime="2024-12-31">December 31, 2024</time>
+                    <h1 class="shimmer-text">Case Study: The Pomodoro App</h1>
+                    <div class="category-tag">CASE STUDY</div>
+                </div>
+
+                <div class="article-hero reveal">
+                    <div class="glass-card image-card-v2">
+                        <img src="../media/blog-post3.jpg" alt="Minimalist Pomodoro App interface" class="article-main-img">
+                    </div>
+                </div>
+
+                <div class="article-body reveal">
+                    <p class="lead">Productivity is personal. For me, the Pomodoro technique was a game-changer, so I decided to build my own tool tailored exactly to how I work. Here is how I built a full-featured Pomodoro app with pure web technologies.</p>
+
+                    <h3>The Concept</h3>
+                    <p>The goal was to create a minimalist yet powerful timer that supports 25-minute focus blocks followed by 5-minute breaks. I wanted a UI that didn't distract but rather encouraged focus through elegant design and subtle feedback.</p>
+                    
+                    <div class="quote-box glass-card">
+                        "Building this app taught me the importance of state management and precise timing in JavaScript."
+                    </div>
+
+                    <h3>Technical Architecture</h3>
+                    <p>I chose a "Vanilla" approach to master the fundamentals of modern web development:</p>
+                    <ul class="premium-list">
+                        <li><strong>Structure (HTML5):</strong> Semantic layout for accessibility.</li>
+                        <li><strong>Logic (JS ES6):</strong> Custom timer engine using <code>setInterval</code> with accuracy correction.</li>
+                        <li><strong>Styling (CSS3):</strong> Flexbox layout for responsiveness and smooth CSS transitions.</li>
+                    </ul>
+
+                    <h3>Key Features</h3>
+                    <div class="step-card-mini glass-card">
+                        <h4>Custom Settings</h4>
+                        <p>Allows users to adjust work and break durations to suit their specific workflow needs.</p>
+                    </div>
+                    <div class="step-card-mini glass-card">
+                        <h4>Sound Notifications</h4>
+                        <p>Subtle audio cues that signal transitions without breaking the deep work state.</p>
+                    </div>
+                    <div class="step-card-mini glass-card">
+                        <h4>Session Tracking</h4>
+                        <p>Persistence using <code>localStorage</code> to keep track of completed cycles throughout the day.</p>
+                    </div>
+
+                    <h3>Conclusion & Open Source</h3>
+                    <p>The project was a huge milestone for my JavaScript skills. It's now live and open source for anyone to explore or contribute to.</p>
+                    
+                    <div class="hero-actions" style="margin-top: 2rem; justify-content: flex-start;">
+                        <a href="https://github.com/Lucaas-o/pomodoro-app" target="_blank" class="btn-primary">View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="article-footer reveal">
+                    <a href="../blog.html" class="btn-secondary">Back to Stories</a>
+                </div>
             </div>
-            <a href="../blog.html" class="hero__cta">Back to Blog</a>
         </article>
     </main>
-    <footer>
-        <p>© 2025 Lucas Orge. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+            </div>
+        </div>
     </footer>
+
     <script src="../static/main.js" type="module"></script>
+    
+    <style>
+        /* Sharing styles with post1 and post2 for consistency */
+        .page-content { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+        .container-thin { max-width: 800px; }
+        .article-header { margin-bottom: var(--spacing-lg); text-align: center; }
+        .back-link { display: block; margin-bottom: 2rem; color: var(--clr-accent-cyan); font-weight: 600; font-size: 0.9rem; }
+        .article-header time { font-size: 0.9rem; opacity: 0.6; margin-bottom: 1rem; display: block; }
+        .category-tag { display: inline-block; padding: 0.4rem 1rem; background: rgba(var(--clr-accent-cyan-rgb), 0.1); color: var(--clr-accent-cyan); border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; margin-top: 1rem; }
+        
+        .article-hero { margin-bottom: var(--spacing-lg); }
+        .image-card-v2 { padding: 15px; }
+        .article-main-img { width: 100%; border-radius: 12px; }
+        
+        .article-body { font-size: 1.1rem; line-height: 1.8; color: var(--text-sec); }
+        .lead { font-size: 1.25rem; color: var(--text); margin-bottom: 2.5rem; font-weight: 500; }
+        .article-body h3 { color: var(--text); margin: 3rem 0 1.5rem; font-size: 1.75rem; }
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        .premium-list { list-style: none; margin-bottom: 2.5rem; }
+        .premium-list li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .premium-list li::before { content: '→'; position: absolute; left: 0; color: var(--clr-accent-pink); }
+        
+        .quote-box { padding: 2rem; border-left: 4px solid var(--clr-accent-pink); font-style: italic; font-size: 1.2rem; margin: 3rem 0; color: var(--text); }
+        
+        .step-card-mini { padding: 1.5rem; margin-bottom: 1.5rem; }
+        .step-card-mini h4 { color: var(--clr-accent-cyan); margin-bottom: 0.5rem; }
+        
+        .article-footer { margin-top: 5rem; text-align: center; padding-top: 3rem; border-top: 1px solid var(--glass-border); }
+        
+        .hero-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+    </style>
 </body>
 </html>

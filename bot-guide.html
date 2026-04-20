@@ -1,95 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot Guide - Lucas O.</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>Bot Hosting Guide | Lucas O.</title>
+    
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/components.css">
+    <link rel="stylesheet" href="static/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body>
+    <div class="mesh-bg"></div>
+
     <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-list">
+        <nav class="nav-container" aria-label="Main Navigation">
+            <div class="logo">LUCAS.O</div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="bot-request.html">Bot Request</a></li>
-                <li><a href="bot-guide.html" aria-current="page">Bot Guide</a></li>
+                <li><a href="bot-guide.html" class="active">Bot Guide</a></li>
             </ul>
+            <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <span class="icon">🌓</span>
+            </button>
+            <button class="menu-trigger" aria-label="Open Mobile Menu">☰</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <main>
-        <section class="website-section bot-guide scroll-reveal" aria-labelledby="bot-guide-heading">
-            <h2 id="bot-guide-heading">How to Run Your Discord Bot</h2>
-            <p>Hey there! Your new bot is ready to make your server awesome, but it needs to stay online to work. Don’t worry—I’ve made this super easy! Follow these steps to run it on your Android phone or a computer you can leave on. No tech skills needed, just a little patience!</p>
 
-            <h3>What You’ll Need</h3>
-            <ul>
-                <li>An Android phone OR a computer that can stay powered on.</li>
-                <li>A charger to keep your device plugged in.</li>
-                <li>A steady Wi-Fi connection (mobile data works too, but Wi-Fi is best).</li>
-                <li>The bot folder I’ll send you—it’s got everything ready to go!</li>
-            </ul>
+    <main class="page-content">
+        <section class="website-section guide-premium">
+            <div class="container container-medium">
+                <div class="section-header reveal">
+                    <h1 class="shimmer-text">Hosting Architecture Guide</h1>
+                    <p class="section-desc">Keep your bot online 24/7 with these streamlined deployment steps.</p>
+                </div>
+                
+                <div class="guide-intro glass-card reveal">
+                    <p>Your bot is a powerful tool, but it needs an environment to live in. Whether you use an Android device or a dedicated machine, this guide ensures your community never loses its silicon companion.</p>
+                </div>
 
-            <h3>Step 1: Get the App</h3>
-            <p>We’ll use a free app called Termux to run your bot. It’s like a mini-computer on your phone!</p>
-            <ul>
-                <li><strong>For Phones:</strong> Download Termux from <a href="https://f-droid.org/packages/com.termux/" target="_blank">this link</a>. (Don’t use Google Play—it’s an old version that might not work.)</li>
-                <li><strong>For Computers:</strong> You can use this too, but it’s easiest on a phone. If you’re on a computer, just let me know—I’ll adjust the steps!</li>
-                <li>Open Termux after it’s installed. You’ll see a black screen with text—that’s normal!</li>
-            </ul>
+                <div class="step-list">
+                    <!-- Step 1 -->
+                    <div class="step-card glass-card reveal">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Environment Setup</h3>
+                            <p>We'll use <strong>Termux</strong> for Android or a <strong>Node.js</strong> environment for PC. Termux is a free, powerful terminal emulator that acts like a mini-server on your phone.</p>
+                            <div class="action-box">
+                                <a href="https://f-droid.org/packages/com.termux/" target="_blank" class="btn-secondary">Download Termux (v0.118+)</a>
+                            </div>
+                        </div>
+                    </div>
 
-            <h3>Step 2: Set Up Termux</h3>
-            <p>Let’s get Termux ready to run your bot. Follow these exactly:</p>
-            <ol>
-                <li>Type this into Termux and press Enter: <code>pkg update</code>. Wait until it finishes—it might take a minute or two.</li>
-                <li>Type this next and press Enter: <code>pkg install nodejs</code>. This adds Node.js, which runs your bot. Wait again—it’s quick!</li>
-                <li>Type <code>node -v</code> and press Enter. If you see something like “v18.0.0,” you’re good! If not, message me.</li>
-            </ol>
+                    <!-- Step 2 -->
+                    <div class="step-card glass-card reveal">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Initialization Commands</h3>
+                            <p>Execute these commands in sequence to prepare your environment.</p>
+                            <div class="code-block-v2">
+                                <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+                                <code id="setup-code">pkg update && pkg upgrade<br>pkg install nodejs<br>pkg install unzip</code>
+                            </div>
+                        </div>
+                    </div>
 
-            <h3>Step 3: Add Your Bot Files</h3>
-            <p>I’ll send you a ZIP file with your bot. Here’s how to get it ready in Termux:</p>
-            <ol>
-                <li>Download the ZIP file I send you (e.g., “YourBot.zip”) and save it to your <strong>Downloads</strong> folder on your phone. Check your email or Discord for it!</li>
-                <li><strong>Extract the Files:</strong> You’ve got two easy ways to do this:
-                    <ul>
-                        <li><strong>Option 1 - Use Termux:</strong> In Termux, type <code>pkg install unzip</code> and press Enter. Then type <code>unzip /storage/emulated/0/Download/YourBot.zip -d ~/</code> and press Enter. This puts the files in your Termux home folder.</li>
-                        <li><strong>Option 2 - Manually:</strong> Tap the ZIP file in your Downloads folder, choose “Extract,” and pick “Home” or “Termux” as the spot. If you don’t see “Termux,” extract to Downloads, then move the folder to Termux later (I’ll help if needed).</li>
+                    <!-- Step 3 -->
+                    <div class="step-card glass-card reveal">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Deploying Bot Files</h3>
+                            <p>Upload your bot's identity files. I'll provide these in a secure ZIP package.</p>
+                            <ol class="premium-list">
+                                <li>Move the ZIP to your device's home directory.</li>
+                                <li>Use <code>unzip YourBot.zip</code> to extract the core architecture.</li>
+                                <li>Navigate to the root: <code>cd YourBot</code></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card glass-card reveal">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Ignition</h3>
+                            <p>Start the process and bring your bot to life.</p>
+                            <div class="code-block-v2">
+                                <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+                                <code>node index.js</code>
+                            </div>
+                            <p class="success-hint"><i class="fas fa-check-circle"></i> Once you see "Bot is Online!", you're live!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pro-tips glass-card reveal">
+                    <h3><i class="fas fa-lightbulb"></i> Pro-Tips for 24/7 Uptime</h3>
+                    <ul class="premium-list">
+                        <li><strong>Power Management:</strong> Keep the device connected to a stable power source.</li>
+                        <li><strong>Connectivity:</strong> Ensure background data usage is allowed for Termux.</li>
+                        <li><strong>Recovery:</strong> If the device restarts, simply re-run the <code>node index.js</code> command.</li>
                     </ul>
-                </li>
-                <li>In Termux, type <code>cd ~/YourBot</code> and press Enter. (If your bot’s name is different, I’ll tell you what to type!)</li>
-                <li>Type <code>ls</code> and press Enter. Look for <code>index.js</code>—that’s your bot file! If you see a <code>src/</code> folder instead, type <code>cd src</code>, press Enter, then <code>ls</code> again. You should see <code>index.js</code> or <code>bot.js</code>. If not, message me!</li>
-            </ol>
-
-            <h3>Step 4: Start Your Bot</h3>
-            <p>Time to bring your bot to life!</p>
-            <ol>
-                <li>In Termux, type <code>node index.js</code> (or <code>node bot.js</code> if that’s what you see) and press Enter.</li>
-                <li>Wait a few seconds—you’ll see “Your bot is online!” (or a similar message). That means it’s working!</li>
-                <li>Go to your Discord server and test it—try a command like <code>!hello</code> (I’ll tell you the exact commands).</li>
-            </ol>
-
-            <h3>Step 5: Keep It Running</h3>
-            <p>Your bot needs to stay on to work. Here’s how to make sure it doesn’t stop:</p>
-            <ul>
-                <li><strong>Plug It In:</strong> Keep your phone or computer charging so it doesn’t turn off.</li>
-                <li><strong>Wi-Fi On:</strong> Stay connected to Wi-Fi. If it drops, the bot pauses until it’s back.</li>
-                <li><strong>Don’t Close Termux:</strong> Leave the Termux app open. If your phone locks, that’s fine—just don’t swipe it away.</li>
-                <li><strong>If It Stops:</strong> If your phone restarts or Termux closes, just open Termux, type <code>cd ~/YourBot</code> (or <code>cd ~/YourBot/src</code> if it’s in src), then <code>node index.js</code> again. Easy fix!</li>
-            </ul>
-
-            <h3>What If Something Goes Wrong?</h3>
-            <p>I’ve made this as simple as possible, but if anything doesn’t work (like Termux won’t open or the bot won’t start), don’t panic! Just message me on Discord or email with what you see, and I’ll fix it fast. You won’t be stuck—I promise!</p>
-
-            <h3>Why This is Awesome</h3>
-            <p>Your bot runs right on your phone or computer—no extra costs, no complicated stuff! It’s light and won’t slow anything down. Get ready to show it off to your server in just a few days!</p>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Orge. Built with Passion & Premium Code.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Lucaas-o" target="_blank">GitHub</a>
+                    <a href="https://x.com/lucass814368" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
     <script src="static/main.js" type="module"></script>
+    
+    <style>
+        .page-content { padding-top: var(--spacing-xl); }
+        .guide-intro { margin-bottom: var(--spacing-lg); text-align: center; }
+        
+        .step-list { display: flex; flex-direction: column; gap: 2rem; margin-bottom: var(--spacing-lg); }
+        .step-card { display: flex; gap: 2.5rem; padding: 2.5rem; align-items: flex-start; }
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.3;
+            line-height: 1;
+        }
+        .step-content h3 { margin-bottom: 1rem; color: var(--clr-accent-cyan); }
+        .step-content p { opacity: 0.8; margin-bottom: 1.5rem; }
+        
+        .code-block-v2 {
+            background: #000;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1.5rem 0;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+        }
+        .code-header {
+            background: rgba(255,255,255,0.05);
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .code-block-v2 code {
+            display: block;
+            padding: 1.5rem;
+            color: var(--clr-accent-cyan);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+        }
+        .copy-btn { color: #fff; font-weight: 600; cursor: pointer; }
+        
+        .action-box { margin-top: 1rem; }
+        
+        .premium-list { list-style: none; }
+        .premium-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .premium-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--clr-accent-pink);
+        }
+        
+        .success-hint { color: #4ade80; font-weight: 600; font-size: 0.9rem; }
+        .pro-tips { border-top: 4px solid var(--clr-accent-pink); }
+        .pro-tips h3 { margin-bottom: 1.5rem; }
+        
+        @media (max-width: 600px) {
+            .step-card { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+            .step-number { font-size: 2rem; }
+        }
+    </style>
 </body>
 </html>
