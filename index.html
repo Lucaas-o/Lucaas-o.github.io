@@ -3,44 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas O. - Software Developer</title>
-    <meta name="description" content="Portfolio of Lucas Orge, a 16-year-old software developer creating innovative projects.">
-    <meta property="og:title" content="Lucas Orge Portfolio">
-    <meta property="og:image" content="media/profile.jpg">
+    <title>Lucas O. | Software Developer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
+    
+    <meta name="description" content="16-year-old software developer building modern applications and bots.">
 </head>
 <body data-theme="dark">
-    <header>
-        <nav aria-label="Main navigation">
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+    <header class="glass-nav">
+        <nav class="container">
+            <div class="logo">L.O</div>
             <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="bot-request.html">Bot Request</a></li>
             </ul>
+            <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
         </nav>
-        <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </header>
-    <section class="hero">
-        <img src="media/profile.jpg" alt="Lucas Orge" class="hero__image fade-in">
-        <h1 class="hero__title fade-in">Hey, I’m Lucas!</h1>
-        <p class="hero-subtitle">Coding the Future at 16</p>
-        <a href="/projects.html" class="hero__cta fade-in">Explore My Work</a>
-    </section>
-    <main>
-        <section class="website-section featured-projects" aria-labelledby="featured-projects-heading">
-            <h2 id="featured-projects-heading">Featured Projects</h2>
-            <div class="projects-container"></div>
-            <p class="more-projects"><a href="projects.html">See All Projects</a></p>
+
+    <main class="container">
+        <section class="hero slide-up">
+            <div class="hero__content">
+                <img src="media/profile.jpg" alt="Lucas Orge" class="hero__image">
+                <h1 class="hero__title">Hi, I'm <span class="text-gradient">Lucas</span></h1>
+                <p class="hero-subtitle">Building the web at 16 • Full-stack Enthusiast</p>
+                <div class="hero__actions">
+                    <a href="/projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Toolbox</h2>
+            <div class="skills-grid">
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>React</span>
+                <span>Node.js</span>
+            </div>
+        </section>
+
+        <section id="projects" class="featured-projects">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <a href="projects.html" class="link-arrow">View all →</a>
+            </div>
+            <div class="projects-container">
+                <div class="project-skeleton">Loading projects...</div>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>© 2025 Lucas O. All rights reserved.</p>
-        <button id="scroll-to-top" aria-label="Scroll to top">↑ Top</button>
+        <p>© 2025 Lucas O. Built with passion.</p>
     </footer>
+
     <script src="static/main.js" type="module"></script>
 </body>
 </html>
