@@ -28,16 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function initTheme() {
     const themeToggle = document.getElementById("theme-toggle");
     const savedTheme = localStorage.getItem("theme") || "dark";
-    
+
     document.documentElement.setAttribute("data-theme", savedTheme);
-    
+
     themeToggle.addEventListener("click", () => {
         const currentTheme = document.documentElement.getAttribute("data-theme");
         const newTheme = currentTheme === "dark" ? "light" : "dark";
-        
+
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
-        
+
         updateThemeLogos();
 
         // GSAP transition effect on theme change
@@ -48,7 +48,7 @@ function initTheme() {
 function updateThemeLogos() {
     const theme = document.documentElement.getAttribute("data-theme");
     const logos = document.querySelectorAll(".theme-aware-logo");
-    
+
     logos.forEach(logo => {
         const darkSrc = logo.getAttribute("data-dark");
         const lightSrc = logo.getAttribute("data-light");
@@ -74,7 +74,7 @@ function initGSAP() {
 
     // Reveal on Scroll
     const reveals = document.querySelectorAll(".reveal");
-    
+
     // Set initial state via GSAP to avoid CSS conflicts
     gsap.set(reveals, { opacity: 0, y: 50 });
 
@@ -114,11 +114,11 @@ function initGSAP() {
 function initNavigation() {
     const menuTrigger = document.querySelector(".menu-trigger");
     const navLinks = document.querySelector(".nav-links");
-    
+
     if (menuTrigger) {
         menuTrigger.addEventListener("click", () => {
             navLinks.classList.toggle("mobile-active");
-            
+
             // GSAP Mobile Menu Animation
             if (navLinks.classList.contains("mobile-active")) {
                 gsap.from(".nav-links li", {
@@ -136,12 +136,12 @@ function initNavigation() {
     window.addEventListener("scroll", () => {
         const currentScroll = window.pageYOffset;
         const nav = document.querySelector(".nav-container");
-        
+
         if (currentScroll <= 0) {
             nav.style.transform = "translateX(-50%) translateY(0)";
             return;
         }
-        
+
         if (currentScroll > lastScroll) {
             // Scrolling down - hide
             nav.style.transform = "translateX(-50%) translateY(-150%)";
@@ -159,18 +159,19 @@ function renderProjects(filter) {
     if (!container) return;
 
     // Clear and Animate Out
-    gsap.to(container, { opacity: 0, scale: 0.95, duration: 0.3, onComplete: () => {
-        container.innerHTML = "";
-        
-        const isFeaturedPage = container.id === "featured-projects";
-        const targets = isFeaturedPage ? projectData.slice(0, 3) : projectData;
-        
-        const filtered = filter === "all" ? targets : targets.filter(p => p.category === filter);
+    gsap.to(container, {
+        opacity: 0, scale: 0.95, duration: 0.3, onComplete: () => {
+            container.innerHTML = "";
 
-        filtered.forEach(project => {
-            const card = document.createElement("div");
-            card.className = "project-card-premium glass-card reveal";
-            card.innerHTML = `
+            const isFeaturedPage = container.id === "featured-projects";
+            const targets = isFeaturedPage ? projectData.slice(0, 3) : projectData;
+
+            const filtered = filter === "all" ? targets : targets.filter(p => p.category === filter);
+
+            filtered.forEach(project => {
+                const card = document.createElement("div");
+                card.className = "project-card-premium glass-card reveal";
+                card.innerHTML = `
                 <div class="card-img-side">
                     <img src="${project.img}" alt="${project.title}" loading="lazy">
                     <div class="card-overlay">
@@ -183,39 +184,40 @@ function renderProjects(filter) {
                     <p>${project.desc}</p>
                 </div>
             `;
-            container.appendChild(card);
-            
-            // Add 3D Tilt Logic
-            card.addEventListener("mousemove", (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                
-                gsap.to(card, {
-                    rotateX,
-                    rotateY,
-                    duration: 0.5,
-                    ease: "power2.out"
-                });
-            });
-            
-            card.addEventListener("mouseleave", () => {
-                gsap.to(card, {
-                    rotateX: 0,
-                    rotateY: 0,
-                    duration: 0.5,
-                    ease: "power2.out"
-                });
-            });
-        });
+                container.appendChild(card);
 
-        // Animate In
-        gsap.to(container, { opacity: 1, scale: 1, duration: 0.5 });
-    }});
+                // Add 3D Tilt Logic
+                card.addEventListener("mousemove", (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+
+                    gsap.to(card, {
+                        rotateX,
+                        rotateY,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    gsap.to(card, {
+                        rotateX: 0,
+                        rotateY: 0,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+            });
+
+            // Animate In
+            gsap.to(container, { opacity: 1, scale: 1, duration: 0.5 });
+        }
+    });
 }
 
 // --- Setup Filters ---

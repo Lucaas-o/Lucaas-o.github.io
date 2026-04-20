@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas O. | Software Developer & Tech Enthusiast</title>
-    
+
     <!-- SEO & Social Media -->
-    <meta name="description" content="Portfolio of Lucas Orge, a 16-year-old software developer crafting modern web experiences and innovative Discord bots. Discover my projects and my journey.">
-    <meta name="keywords" content="Lucas Orge, Software Developer, Portfolio, Discord Bot Developer, Web Developer, 16 year old coder">
+    <meta name="description"
+        content="Portfolio of Lucas Orge, a 16-year-old software developer crafting modern web experiences and innovative Discord bots. Discover my projects and my journey.">
+    <meta name="keywords"
+        content="Lucas Orge, Software Developer, Portfolio, Discord Bot Developer, Web Developer, 16 year old coder">
     <meta property="og:title" content="Lucas O. | Creative Software Developer">
-    <meta property="og:description" content="Designing the future of tech. Check out my latest projects and coding journey.">
+    <meta property="og:description"
+        content="Designing the future of tech. Check out my latest projects and coding journey.">
     <meta property="og:image" content="media/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    
+
     <!-- Fonts & Styles -->
     <link rel="stylesheet" href="static/base.css">
     <link rel="stylesheet" href="static/components.css">
     <link rel="stylesheet" href="static/animations.css">
-    
+
     <!-- External Libraries (CDNs) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
+
 <body>
     <!-- Premium Interactive Elements -->
     <div class="mesh-bg"></div>
@@ -35,7 +40,6 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <button class="theme-switch" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
@@ -58,7 +62,8 @@
                         at Sweet Sixteen.
                     </h1>
                     <p class="hero-subtitle">
-                        Hi, I'm <span class="text-accent">Lucas</span>. A software developer passionate about clean code, 
+                        Hi, I'm <span class="text-accent">Lucas</span>. A software developer passionate about clean
+                        code,
                         modern UI, and building innovative digital solutions.
                     </p>
                     <div class="hero-actions">
@@ -67,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Scroll Indicator -->
             <div class="scroll-down">
                 <div class="mouse"></div>
@@ -82,11 +87,11 @@
                     <h2 class="section-title">Selected Projects</h2>
                     <p class="section-desc">A glimpse of what I've been working on lately.</p>
                 </div>
-                
+
                 <div class="projects-grid" id="featured-projects">
                     <!-- Injected via JavaScript for Phase 3 -->
                 </div>
-                
+
                 <div class="view-all-container reveal">
                     <a href="projects.html" class="link-arrow">View All Projects <span>→</span></a>
                 </div>
@@ -108,7 +113,7 @@
 
     <!-- Scripts -->
     <script src="static/main.js" type="module"></script>
-    
+
     <!-- Inline styles for specific hero layout before full implementation if needed -->
     <style>
         .hero-premium {
@@ -120,17 +125,20 @@
             padding: var(--spacing-xl) var(--spacing-md);
             text-align: center;
         }
+
         .hero-title {
             font-size: clamp(2.5rem, 8vw, 5rem);
             line-height: 1.1;
             margin-bottom: var(--spacing-md);
         }
+
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.25rem);
             max-width: 600px;
             margin: 0 auto var(--spacing-lg);
             opacity: 0.9;
         }
+
         .profile-frame {
             width: 180px;
             height: 180px;
@@ -140,6 +148,7 @@
             background: var(--grad-primary);
             position: relative;
         }
+
         .hero-profile-img {
             width: 100%;
             height: 100%;
@@ -147,16 +156,19 @@
             object-fit: cover;
             border: 4px solid var(--bg);
         }
+
         .text-accent {
             color: var(--clr-accent-cyan);
             font-weight: 700;
         }
+
         .hero-actions {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .btn-secondary {
             padding: 0.8rem 2rem;
             border: 1px solid var(--glass-border);
@@ -166,10 +178,12 @@
             font-weight: 600;
             transition: var(--transition-smooth);
         }
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: var(--clr-accent-cyan);
         }
+
         .scroll-down {
             position: absolute;
             bottom: 30px;
@@ -177,6 +191,7 @@
             transform: translateX(-50%);
             opacity: 0.6;
         }
+
         .mouse {
             width: 25px;
             height: 40px;
@@ -185,6 +200,7 @@
             margin: 0 auto 10px;
             position: relative;
         }
+
         .mouse::before {
             content: '';
             position: absolute;
@@ -197,32 +213,46 @@
             transform: translateX(-50%);
             animation: scroll-anim 2s infinite;
         }
+
         @keyframes scroll-anim {
-            0% { opacity: 1; transform: translate(-50%, 0); }
-            100% { opacity: 0; transform: translate(-50%, 20px); }
+            0% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
         }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: var(--spacing-lg);
         }
+
         .view-all-container {
             margin-top: var(--spacing-lg);
             text-align: center;
         }
+
         .link-arrow {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--clr-accent-cyan);
         }
+
         .link-arrow span {
             transition: transform 0.3s ease;
             display: inline-block;
         }
+
         .link-arrow:hover span {
             transform: translateX(8px);
         }
+
         .footer-bottom {
             padding: var(--spacing-md) 0;
             border-top: 1px solid var(--glass-border);
@@ -232,10 +262,12 @@
             font-size: 0.9rem;
             opacity: 0.7;
         }
+
         .footer-links {
             display: flex;
             gap: 1.5rem;
         }
+
         @media (max-width: 480px) {
             .footer-bottom {
                 flex-direction: column;
@@ -245,4 +277,5 @@
         }
     </style>
 </body>
+
 </html>
